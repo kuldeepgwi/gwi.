@@ -3,68 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GWI - Professional Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    <title>GWI Dashboard</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        body { background: radial-gradient(circle at center, #1a1a1a 0%, #070707 100%); height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; overflow: hidden; }
-        .login-card { background: rgba(20, 20, 20, 0.65); backdrop-filter: blur(15px); border: 1px solid rgba(212, 175, 55, 0.2); padding: 40px 30px; border-radius: 24px; width: 100%; max-width: 420px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); text-align: center; }
-        .brand-logo { font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, #fbf5b7 0%, #d4af37 50%, #b38728 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px; }
-        .subtitle { color: #888; font-size: 0.9rem; margin-bottom: 35px; }
-        .input-group { position: relative; margin-bottom: 25px; }
-        .input-group i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #d4af37; }
-        .input-group input { width: 100%; padding: 16px 16px 16px 50px; background: rgba(30, 30, 30, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; }
-        .login-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #b38728 0%, #d4af37 50%, #fbf5b7 100%); border: none; border-radius: 12px; color: #000; font-weight: 700; cursor: pointer; }
+        body { background-color: #0d0d0d; color: #fff; font-family: sans-serif; padding: 20px; }
+        .card { background: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #d4af37; }
     </style>
 </head>
 <body>
-    <div class="login-card">
-        <div class="brand-logo">GWI V2</div>
-        <div class="subtitle">GROWTH WITH INDIA</div>
-        <form id="loginForm">
-            <div class="input-group">
-                <input type="email" id="loginEmail" placeholder="ईमेल आईडी" required>
-                <i class="fas fa-envelope"></i>
-            </div>
-            <div class="input-group">
-                <input type="password" id="loginPassword" placeholder="पासवर्ड" required>
-                <i class="fas fa-lock"></i>
-            </div>
-            <button type="submit" class="login-btn" id="loginBtn">SECURE LOGIN</button>
-        </form>
+    <div class="card">
+        <h2>नमस्ते, <span id="userName">यूजर</span>!</h2>
+        <p>आपका डैशबोर्ड तैयार है।</p>
+        <button onclick="logout()">LOGOUT</button>
     </div>
     <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyDzbOFb6rgGO2H2Tgh9MpfS4vqTw1skhW0",
-            authDomain: "growth-with-india-34032.firebaseapp.com",
-            projectId: "growth-with-india-34032",
-            storageBucket: "growth-with-india-34032.firebasestorage.app",
-            messagingSenderId: "239083092040",
-            appId: "1:239083092040:web:6aefd9027be53bbc79007d",
-            measurementId: "G-XZR235MV7",
-            databaseURL: "https://growth-with-india-34032-default-rtdb.firebaseio.com/"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-        document.getElementById('loginForm').onsubmit = function(e) {
-            e.preventDefault();
-            const email = document.getElementById('loginEmail').value.trim();
-            const password = document.getElementById('loginPassword').value;
-            database.ref('users').once('value').then((snapshot) => {
-                let userFound = false;
-                snapshot.forEach((childSnapshot) => {
-                    const userData = childSnapshot.val();
-                    if(userData.emailId === email && userData.password === password) {
-                        userFound = true;
-                        localStorage.setItem('gwiUser', JSON.stringify(userData));
-                        window.location.href = "dashboard.html";
-                    }
-                });
-                if(!userFound) alert("गलत ईमेल या पासवर्ड!");
-            });
-        };
+        const sessionData = localStorage.getItem('gwiUser');
+        if(!sessionData) window.location.href = "login.html";
+        else document.getElementById('userName').innerText = JSON.parse(sessionData).fullName;
+        function logout() { localStorage.removeItem('gwiUser'); window.location.href = "login.html"; }
     </script>
 </body>
 </html>
