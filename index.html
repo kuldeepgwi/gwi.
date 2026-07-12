@@ -6,6 +6,11 @@
     <title>Growth With India (GWI)</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Firebase SDK Links -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
     <style>
         /* Base & Theme Colors (Luxury Black & Gold) */
         * {
@@ -268,7 +273,6 @@
         .form-group input:focus, .form-group select:focus {
             border-color: #d4af37;
         }
-        /* Style select options */
         .form-group select option {
             background: #111;
             color: #fff;
@@ -338,7 +342,6 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* Responsive Design for Mobile */
         @media (max-width: 768px) {
             nav { padding: 15px 5%; }
             .nav-links { display: none; }
@@ -440,34 +443,34 @@
             <form id="registrationForm">
                 <div class="form-group">
                     <i class="fa-solid fa-id-badge"></i>
-                    <input type="text" placeholder="Sponsor ID" required>
+                    <input type="text" id="sponsorId" placeholder="Sponsor ID" required>
                 </div>
                 <div class="form-group">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Full Name" required>
+                    <input type="text" id="fullName" placeholder="Full Name" required>
                 </div>
                 <div class="form-group">
                     <i class="fa-solid fa-phone"></i>
-                    <input type="tel" placeholder="Mobile Number" required>
+                    <input type="tel" id="mobileNumber" placeholder="Mobile Number" required>
                 </div>
                 <div class="form-group">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" placeholder="Email Address" required>
+                    <input type="email" id="emailId" placeholder="Email Address" required>
                 </div>
                 <div class="form-group">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Create Password" required>
+                    <input type="password" id="password" placeholder="Create Password" required>
                 </div>
                 <div class="form-group">
                     <i class="fa-solid fa-globe"></i>
-                    <select required>
+                    <select id="country" required>
                         <option value="" disabled selected>Select Country</option>
                         <option value="India">India</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <i class="fa-solid fa-location-dot"></i>
-                    <select required>
+                    <select id="state" required>
                         <option value="" disabled selected>Select State</option>
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -507,7 +510,7 @@
                         <option value="Puducherry">Puducherry</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-submit">Complete Registration</button>
+                <button type="submit" class="btn-submit" id="submitBtn">Complete Registration</button>
             </form>
         </div>
     </div>
@@ -522,30 +525,68 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- JavaScript for Form Open/Close -->
+    <!-- JavaScript Core Logics -->
     <script>
+        // Your Firebase Configuration (Directly From Your Screenshot)
+        const firebaseConfig = {
+            apiKey: "AIzaSyDzbOFb6rgG02H2Tgh0MpfSWvqTwlSkho8",
+            authDomain: "growth-with-india-34032.firebaseapp.com",
+            projectId: "growth-with-india-34032",
+            storageBucket: "growth-with-india-34032.firebasestorage.app",
+            messagingSenderId: "239083092040",
+            appId: "1:239083092040:web:6aefd9027be53bbc79007d",
+            measurementId: "G-XZ2R235MW7",
+            databaseURL: "https://growth-with-india-34032-default-rtdb.firebaseio.com/"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Modal Open/Close Controls
         const modal = document.getElementById("regModal");
         const openBtn = document.getElementById("openFormBtn");
         const closeBtn = document.getElementById("closeFormBtn");
 
-        openBtn.onclick = function() {
-            modal.style.display = "flex";
-        }
+        openBtn.onclick = function() { modal.style.display = "flex"; }
+        closeBtn.onclick = function() { modal.style.display = "none"; }
+        window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
 
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
+        // Form Submit & Save Data to Realtime Database
         document.getElementById("registrationForm").onsubmit = function(e) {
             e.preventDefault();
-            alert("Registration successful! (अब हम अगले फेज में इसे डेटाबेेस से कनेक्ट करेंगे)");
-            modal.style.display = "none";
+            
+            const submitBtn = document.getElementById("submitBtn");
+            submitBtn.innerText = "Processing...";
+            submitBtn.disabled = true;
+
+            // Gathering User Inputs
+            const userData = {
+                sponsorId: document.getElementById("sponsorId").value,
+                fullName: document.getElementById("fullName").value,
+                mobileNumber: document.getElementById("mobileNumber").value,
+                emailId: document.getElementById("emailId").value,
+                password: document.getElementById("password").value,
+                country: document.getElementById("country").value,
+                state: document.getElementById("state").value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Pushing Data to 'users' folder in Firebase
+            const newRef = database.ref('users').push();
+            newRef.set(userData)
+            .then(() => {
+                alert("बधाई हो! आपका रजिस्ट्रेशन सफ़ल रहा।");
+                document.getElementById("registrationForm").reset();
+                modal.style.display = "none";
+            })
+            .catch((error) => {
+                alert("गड़बड़ हुई: " + error.message);
+            })
+            .finally(() => {
+                submitBtn.innerText = "Complete Registration";
+                submitBtn.disabled = false;
+            });
         }
     </script>
 
