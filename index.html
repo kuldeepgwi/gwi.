@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growth With India</title>
+    <title>GWI Dashboard</title>
     <style>
         body { background-color: #0d0d0d; color: #fff; font-family: sans-serif; padding: 20px; text-align: center; }
-        .header { font-size: 24px; font-weight: bold; color: #d4af37; margin-bottom: 20px; }
-        .card { background: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #d4af37; }
-        .income-box { background: #1a1a1a; padding: 10px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #d4af37; }
-        .reg-form { background: #222; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: left; }
-        input { width: 100%; padding: 10px; margin: 5px 0; border-radius: 5px; border: none; box-sizing: border-box; }
-        button { width: 100%; padding: 10px; background: #d4af37; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .card { background: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #d4af37; text-align: left; }
+        .income-box { background: #1a1a1a; padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #d4af37; font-weight: bold; }
+        button { width: 100%; padding: 15px; background: #d4af37; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; color: black; }
     </style>
 </head>
 <body>
-    <div class="header">GROWTH WITH INDIA</div>
-    
+
     <div class="card">
         <h2>Welcome, <span id="userName">User</span>!</h2>
+        <p>GWI में आपका स्वागत है।</p>
     </div>
 
     <div class="income-box">TODAY INCOME: ₹0.00</div>
@@ -26,19 +23,15 @@
     <div class="income-box">LEVEL UP BONUS: ₹0.00</div>
     <div class="income-box">TOTAL INCOME: ₹0.00</div>
 
-    <div class="reg-form">
-        <h3>नया रजिस्ट्रेशन</h3>
-        <input type="text" placeholder="पूरा नाम">
-        <input type="email" placeholder="ईमेल आईडी">
-        <button>REGISTER NOW</button>
-    </div>
-
     <button onclick="logout()">LOGOUT</button>
 
     <script>
         const sessionData = localStorage.getItem('gwiUser');
-        if(!sessionData) window.location.href = "login.html";
-        else document.getElementById('userName').innerText = JSON.parse(sessionData).fullName;
+        if(!sessionData) {
+            window.location.href = "login.html";
+        } else {
+            document.getElementById('userName').innerText = JSON.parse(sessionData).fullName;
+        }
         
         function logout() { 
             localStorage.removeItem('gwiUser'); 
