@@ -7,19 +7,32 @@
     <style>
         body { background-color: #0d0d0d; color: #fff; font-family: sans-serif; padding: 20px; }
         .card { background: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #d4af37; }
+        .income-box { background: #1a1a1a; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #d4af37; text-align: center; font-weight: bold; }
+        .logout-btn { background: #d4af37; border: none; padding: 10px; border-radius: 5px; cursor: pointer; width: 100%; margin-top: 10px; }
     </style>
 </head>
 <body>
     <div class="card">
-        <h2>नमस्ते, <span id="userName">यूजर</span>!</h2>
-        <p>आपका डैशबोर्ड तैयार है।</p>
-        <button onclick="logout()">LOGOUT</button>
+        <h2>Welcome, <span id="userName">User</span>!</h2>
+        <p>GWI में आपका स्वागत है।</p>
     </div>
+    
+    <div class="income-box">TODAY INCOME: ₹0.00</div>
+    <div class="income-box">PASSIVE INCOME: ₹0.00</div>
+    <div class="income-box">LEVEL UP BONUS: ₹0.00</div>
+    <div class="income-box">TOTAL INCOME: ₹0.00</div>
+    
+    <button class="logout-btn" onclick="logout()">LOGOUT</button>
+
     <script>
         const sessionData = localStorage.getItem('gwiUser');
         if(!sessionData) window.location.href = "login.html";
         else document.getElementById('userName').innerText = JSON.parse(sessionData).fullName;
-        function logout() { localStorage.removeItem('gwiUser'); window.location.href = "login.html"; }
+        
+        function logout() { 
+            localStorage.removeItem('gwiUser'); 
+            window.location.href = "login.html"; 
+        }
     </script>
 </body>
 </html>
