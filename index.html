@@ -1,46 +1,204 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growth With India</title>
-    <style>
-        body { background-color: #000; color: #FFD700; font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        .container { max-width: 600px; margin: auto; }
-        .btn { display: inline-block; background-color: #FFD700; color: #000; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; margin: 20px 0; }
-        .service-box { border: 1px solid #FFD700; padding: 15px; margin: 10px 0; border-radius: 8px; text-align: left; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Growth With India (GWI)</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
+color:#fff;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:#111;
+border-bottom:2px solid gold;
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:gold;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:17px;
+transition:.3s;
+}
+
+nav a:hover{
+color:gold;
+}
+
+.hero{
+height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75));
+}
+
+.hero h1{
+font-size:52px;
+color:gold;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 35px;
+background:gold;
+color:black;
+text-decoration:none;
+font-weight:bold;
+border-radius:40px;
+margin:10px;
+transition:.3s;
+}
+
+.btn:hover{
+background:white;
+}
+
+section{
+padding:70px 8%;
+}
+
+.title{
+text-align:center;
+font-size:38px;
+color:gold;
+margin-bottom:40px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#111;
+padding:30px;
+border:1px solid gold;
+border-radius:15px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+color:gold;
+margin-bottom:15px;
+}
+
+footer{
+text-align:center;
+padding:25px;
+background:#111;
+border-top:2px solid gold;
+}
+
+</style>
+
 </head>
+
 <body>
-    <div class="container">
-        <h1>GWI - Growth With India</h1>
-        <p>Build Your Future with Digital Skills</p>
-        <hr style="border: 1px solid #FFD700;">
-        <h2>Welcome to Growth With India</h2>
-        <p>Digital Marketing | Social Media Marketing | AI Tools | Successful Life Building</p>
-        
-        <a href="register.html" class="btn">Get Started</a>
-        
-        <h3>Our Services</h3>
-        
-        <div class="service-box">
-            <h4>Digital Marketing</h4>
-            <p>Learn modern digital marketing and grow your business online.</p>
-        </div>
-        <div class="service-box">
-            <h4>Social Media Marketing</h4>
-            <p>Grow your brand and reach your audience on social platforms.</p>
-        </div>
-        <div class="service-box">
-            <h4>AI Tools</h4>
-            <p>Use AI tools to work faster and smarter.</p>
-        </div>
-        <div class="service-box">
-            <h4>Successful Life Building</h4>
-            <p>Master the skills to build a successful and balanced life.</p>
-        </div>
-        
-        <p style="margin-top: 30px;">© 2026 Growth With India (GWI) | All Rights Reserved</p>
-    </div>
+
+<header>
+
+<div class="logo">GWI</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="register.html">Register</a>
+<a href="login.html">Login</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div>
+
+<h1>WELCOME TO GROWTH WITH INDIA</h1>
+
+<p>Learn Skills • Build Team • Grow Income • Create Your Future</p>
+
+<a href="register.html" class="btn">JOIN NOW</a>
+
+<a href="login.html" class="btn">LOGIN</a>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2 class="title">Our Services</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>AI Skills</h3>
+<p>Learn modern AI tools and improve your digital skills.</p>
+</div>
+
+<div class="card">
+<h3>Social Media</h3>
+<p>Instagram, Facebook, YouTube & Branding Training.</p>
+</div>
+
+<div class="card">
+<h3>Lead Generation</h3>
+<p>Learn how to generate quality leads online.</p>
+</div>
+
+<div class="card">
+<h3>Profile Building</h3>
+<p>Create a professional online identity and personal brand.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>Growth With India (GWI)</h3>
+
+<p>Powered By Kuldeep Singh</p>
+
+</footer>
+
 </body>
 </html>
