@@ -1,49 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>GWI Income Dashboard</title>
+<title>GWI Professional Dashboard</title>
 
 <style>
 body{
     margin:0;
-    font-family:Arial, sans-serif;
-    background:#050505;
+    font-family:Arial,sans-serif;
+    background:#000;
     color:white;
 }
 
 .header{
-    background:#111;
-    padding:20px;
     text-align:center;
+    padding:20px;
+    background:#111;
     border-bottom:2px solid gold;
 }
 
-.header h1{
+.logo{
+    font-size:30px;
+    font-weight:bold;
     color:gold;
+}
+
+.header p{
+    color:#ddd;
+}
+
+.profile{
+    margin:15px;
+    padding:20px;
+    background:#111;
+    border:1px solid gold;
+    border-radius:15px;
+}
+
+.info{
+    display:flex;
+    justify-content:space-between;
+}
+
+.title{
+    color:gold;
+    font-size:16px;
 }
 
 .card{
     margin:15px;
     padding:20px;
     background:#111;
-    border:1px solid gold;
     border-radius:15px;
-    box-shadow:0 0 10px gold;
-}
-
-.title{
-    color:gold;
-    font-size:18px;
+    border:1px solid gold;
+    box-shadow:0 0 8px #444;
 }
 
 .amount{
-    font-size:28px;
-    margin-top:10px;
+    font-size:30px;
+    margin:5px 0;
 }
 
-.profile{
-    display:flex;
-    justify-content:space-between;
+.level{
+    color:gold;
+    font-size:22px;
 }
 
 button{
@@ -51,35 +70,51 @@ button{
     margin:10px 5%;
     padding:15px;
     border:none;
-    border-radius:25px;
+    border-radius:30px;
     background:gold;
     color:black;
     font-size:18px;
     font-weight:bold;
 }
 
+.footer{
+    text-align:center;
+    padding:20px;
+    color:#aaa;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="header">
-<h1>GWI INCOME DASHBOARD</h1>
+<div class="logo">GWI</div>
+<h2>INCOME DASHBOARD</h2>
 <p>Growth With India</p>
 </div>
 
 
-<div class="card profile">
+<div class="profile">
+
+<div class="info">
 <div>
-<h3 class="title">Name</h3>
-<p>Kuldeep Singh</p>
+<p class="title">Name</p>
+<h3>Kuldeep Singh</h3>
 </div>
 
 <div>
-<h3 class="title">GWI ID</h3>
-<p>GWI001</p>
+<p class="title">GWI ID</p>
+<h3>GWI001</h3>
 </div>
 </div>
+
+<p class="title">Sponsor ID</p>
+<h3>GWI000</h3>
+
+</div>
+
 
 
 <div class="card">
@@ -112,9 +147,23 @@ button{
 </div>
 
 
+
+<div class="card">
+<p class="title">CURRENT LEVEL</p>
+<h2 class="level">STARTER</h2>
+</div>
+
+
+
 <button>MY TEAM</button>
 <button>INCOME HISTORY</button>
 <button>WITHDRAW</button>
+<button>LOGOUT</button>
+
+
+<div class="footer">
+© 2026 Growth With India
+</div>
 
 
 </body>
