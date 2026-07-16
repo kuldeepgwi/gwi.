@@ -6,63 +6,94 @@
 <style>
 body{
     margin:0;
-    background:#050505;
-    font-family:Arial;
+    min-height:100vh;
+    background:#000;
+    font-family:Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     color:white;
 }
 
 .login-box{
     width:90%;
-    max-width:400px;
-    margin:80px auto;
-    padding:25px;
+    max-width:450px;
+    padding:40px 30px;
     background:#111;
     border:2px solid gold;
-    border-radius:15px;
-    box-shadow:0 0 15px gold;
+    border-radius:20px;
+    box-shadow:0 0 20px gold;
 }
 
-h1{
+.logo{
     text-align:center;
     color:gold;
+    font-size:35px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+h2{
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
 }
 
 input{
     width:100%;
-    padding:14px;
+    padding:16px;
     margin:12px 0;
     background:#000;
     color:white;
     border:1px solid gold;
-    border-radius:10px;
+    border-radius:12px;
+    font-size:17px;
     box-sizing:border-box;
 }
 
 button{
     width:100%;
-    padding:14px;
+    padding:16px;
+    margin-top:20px;
     background:gold;
     color:black;
     border:none;
-    border-radius:25px;
-    font-size:18px;
+    border-radius:30px;
+    font-size:20px;
     font-weight:bold;
 }
 
+button:hover{
+    background:#ffd700;
+}
+
+p{
+    text-align:center;
+    margin-top:25px;
+}
+
+a{
+    color:gold;
+}
 </style>
+
 </head>
 
 <body>
 
 <div class="login-box">
 
-<h1>GWI LOGIN</h1>
+<div class="logo">GWI</div>
+
+<h2>LOGIN</h2>
 
 <input type="text" placeholder="Enter GWI ID">
 
 <input type="password" placeholder="Enter Password">
 
 <button>LOGIN</button>
+
+<p>New User? <a href="register.html">Register</a></p>
 
 </div>
 
