@@ -1,17 +1,31 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "YAHAN_APNI_API_KEY",
-  authDomain: "gwi-growth-with-india.firebaseapp.com",
-  databaseURL: "https://gwi-growth-with-india-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "gwi-growth-with-india",
-  storageBucket: "gwi-growth-with-india.firebasestorage.app",
-  messagingSenderId: "YAHAN_APNA_SENDER_ID",
-  appId: "YAHAN_APNA_APP_ID"
+  apiKey: "AIzaSyDzbOFb6rgGO2H2Tgh0WpfSWvqTwLSkho8",
+  authDomain: "growth-with-india-34032.firebaseapp.com",
+  databaseURL: "https://growth-with-india-34032-default-rtdb.firebaseio.com",
+  projectId: "growth-with-india-34032",
+  storageBucket: "growth-with-india-34032.firebasestorage.app",
+  messagingSenderId: "239083092040",
+  appId: "1:239083092040:web:6aefd9027be53bbc79007d"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getDatabase(app);
+
+const form = document.getElementById("registerForm");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    alert("Registration Successful!");
+  } catch (error) {
+    alert(error.message);
+  }
+});
