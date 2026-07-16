@@ -1,2 +1,50 @@
 // GWI Website JavaScript
 console.log("GWI Website Loaded");
+body{
+    margin:0;
+    padding:0;
+    background:#111;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    width:90%;
+    max-width:400px;
+    margin:40px auto;
+    background:#1b1b1b;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 0 15px gold;
+}
+
+h1,h2{
+    text-align:center;
+    color:gold;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+    background:#2a2a2a;
+    color:#fff;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:gold;
+    color:#000;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
