@@ -2,96 +2,112 @@
 <html>
 <head>
 <title>GWI Dashboard</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+*{
+box-sizing:border-box;
+font-family:Arial;
+}
+
 body{
 margin:0;
-background:#000;
+min-height:100vh;
+background:linear-gradient(135deg,#6a11cb,#2575fc,#00c6ff);
 color:white;
-font-family:Arial;
 }
 
 .header{
 display:flex;
 justify-content:space-between;
-padding:15px;
-background:#111;
-border-bottom:2px solid gold;
+align-items:center;
+padding:15px 20px;
+background:rgba(0,0,0,.4);
 }
 
 .logo{
-color:gold;
-font-size:30px;
+font-size:32px;
 font-weight:bold;
 }
 
-button{
+.menu button{
+font-size:32px;
 background:none;
 border:0;
-color:gold;
-font-size:30px;
+color:white;
 }
 
-.menu{
+.dropdown{
 display:none;
 position:absolute;
-right:10px;
-top:60px;
+right:15px;
+top:65px;
 background:#111;
-border:1px solid gold;
-border-radius:10px;
+border-radius:15px;
+overflow:hidden;
+width:220px;
 }
 
-.menu p{
-padding:10px 20px;
+.dropdown p{
 margin:0;
-border-bottom:1px solid #333;
+padding:12px;
+border-bottom:1px solid #444;
 }
-
 
 .container{
 padding:15px;
 }
 
-.box{
-background:#111;
-border:1px solid gold;
-border-radius:15px;
-padding:15px;
+.card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
+border-radius:20px;
+padding:20px;
 margin-bottom:15px;
+box-shadow:0 5px 20px #0005;
+}
+
+.profile{
 text-align:center;
 }
 
-.gold{
-color:gold;
+.profile img{
+width:100px;
+height:100px;
+border-radius:50%;
+border:3px solid white;
+}
+
+.title{
+font-size:22px;
+font-weight:bold;
 }
 
 .money{
-font-size:25px;
+font-size:30px;
 font-weight:bold;
 }
 
 </style>
-
 </head>
 
 <body>
-
 
 <div class="header">
 
 <div class="logo">GWI</div>
 
-<div>
-<button onclick="show()">⋮</button>
+<div class="menu">
+<button onclick="menu()">⋮</button>
 
-<div class="menu" id="menu">
-<p onclick="alert('Profile')">Profile</p>
-<p onclick="alert('Income')">Income Details</p>
-<p onclick="alert('Team')">My Team</p>
-<p onclick="alert('Levels')">Levels</p>
+<div class="dropdown" id="drop">
+<p>Profile</p>
+<p>Income Details</p>
+<p>My Team</p>
+<p>12 Levels</p>
+<p>Level Bonus</p>
+<p>Withdrawal</p>
+<p>Settings</p>
 <p onclick="logout()">Logout</p>
 </div>
 
@@ -100,45 +116,56 @@ font-weight:bold;
 </div>
 
 
-
 <div class="container">
 
-<div class="box">
-<h2 class="gold" id="name">User Name</h2>
+
+<div class="card profile">
+<img src="">
+<div class="title" id="name">User Name</div>
 <p id="id">GWI ID</p>
 </div>
 
 
-<div class="box">
-<h3 class="gold">Today Income</h3>
+<div class="card">
+Today Income
 <div class="money">₹0</div>
 </div>
 
 
-<div class="box">
-<h3 class="gold">Last 7 Days Income</h3>
+<div class="card">
+Last 7 Days Income
 <div class="money">₹0</div>
 </div>
 
 
-<div class="box">
-<h3 class="gold">Total Income</h3>
+<div class="card">
+N/W Income
+<div class="money">₹0</div>
+</div>
+
+
+<div class="card">
+Level Up Bonus
+<div class="money">₹0</div>
+</div>
+
+
+<div class="card">
+Total Income
 <div class="money">₹0</div>
 </div>
 
 
 </div>
-
 
 
 <script>
 
-function show(){
+function menu(){
 
-let m=document.getElementById("menu");
+let x=document.getElementById("drop");
 
-m.style.display =
-m.style.display=="block" ? "none" : "block";
+x.style.display=x.style.display=="block"?"none":"block";
 
 }
 
@@ -147,9 +174,9 @@ let user=JSON.parse(localStorage.getItem("loginUser"));
 
 if(user){
 
-document.getElementById("name").innerHTML=user.name;
+document.getElementById("name").innerHTML=user.name||"User";
 
-document.getElementById("id").innerHTML=user.gwiid;
+document.getElementById("id").innerHTML=user.gwiid||"GWI ID";
 
 }
 
@@ -157,12 +184,12 @@ document.getElementById("id").innerHTML=user.gwiid;
 function logout(){
 
 localStorage.removeItem("loginUser");
+
 location.href="login.html";
 
 }
 
 </script>
-
 
 </body>
 </html>
