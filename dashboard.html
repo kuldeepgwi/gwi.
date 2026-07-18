@@ -3,7 +3,6 @@
 <head>
 
 <title>GWI Dashboard</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -19,62 +18,111 @@ background:#000;
 color:white;
 }
 
+/* Header */
+
 .header{
-text-align:center;
-padding:25px;
+height:70px;
 background:#111;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
 border-bottom:2px solid gold;
 }
 
 .logo{
-font-size:42px;
-font-weight:bold;
 color:gold;
+font-size:32px;
+font-weight:bold;
 }
 
-.company{
-font-size:18px;
+
+/* Menu */
+
+.menu{
+position:relative;
 }
 
+.menu button{
+background:none;
+border:none;
+color:gold;
+font-size:35px;
+}
+
+.dropdown{
+display:none;
+position:absolute;
+right:0;
+background:#111;
+width:220px;
+border:1px solid gold;
+border-radius:15px;
+z-index:10;
+}
+
+.dropdown p{
+padding:12px;
+margin:0;
+border-bottom:1px solid #333;
+}
+
+
+/* Profile */
 
 .container{
 padding:20px;
 }
 
+.profile{
+background:#111;
+border:1px solid gold;
+border-radius:20px;
+padding:20px;
+text-align:center;
+}
+
+.profile img{
+width:120px;
+height:120px;
+border-radius:50%;
+border:3px solid gold;
+object-fit:cover;
+}
+
+
+.name{
+font-size:22px;
+color:gold;
+}
+
+
+/* Income */
 
 .card{
 background:#111;
 border:1px solid gold;
 border-radius:15px;
-padding:20px;
-margin:15px 0;
-box-shadow:0 0 15px #d4af37;
+padding:18px;
+margin-top:15px;
 }
-
 
 .card h3{
 color:gold;
-margin-top:0;
 }
 
 
-.value{
+.amount{
 font-size:28px;
 font-weight:bold;
 }
 
 
-button{
-width:100%;
-padding:15px;
-margin-top:20px;
-background:gold;
-border:none;
-border-radius:25px;
-font-size:18px;
-font-weight:bold;
-}
+/* Button */
 
+button{
+cursor:pointer;
+}
 
 </style>
 
@@ -88,8 +136,25 @@ font-weight:bold;
 
 <div class="logo">GWI</div>
 
-<div class="company">
-Growth With India
+
+<div class="menu">
+
+<button onclick="openMenu()">⋮</button>
+
+<div class="dropdown" id="menu">
+
+<p>Profile</p>
+<p>Income Details</p>
+<p>My Team</p>
+<p>Levels</p>
+<p>Level Bonus</p>
+<p>Withdrawal Request</p>
+<p>Withdrawal History</p>
+<p>Settings</p>
+<p onclick="logout()">Logout</p>
+
+</div>
+
 </div>
 
 </div>
@@ -99,83 +164,51 @@ Growth With India
 <div class="container">
 
 
-<div class="card">
+<div class="profile">
 
-<h3>Profile</h3>
+<img id="photo">
 
-<p>Name: <span id="username">User</span></p>
+<h2 class="name" id="name">
+User Name
+</h2>
 
-<p>GWI ID: <span id="gwiid">GWI0000</span></p>
+<p id="id">
+GWI ID
+</p>
 
 </div>
 
 
 
 <div class="card">
-
 <h3>Today Income</h3>
-
-<div class="value">₹0</div>
-
+<div class="amount">₹0</div>
 </div>
 
 
-
 <div class="card">
-
 <h3>Last 7 Days Income</h3>
-
-<div class="value">₹0</div>
-
+<div class="amount">₹0</div>
 </div>
 
 
-
 <div class="card">
-
 <h3>N/W Income</h3>
-
-<div class="value">₹0</div>
-
+<div class="amount">₹0</div>
 </div>
 
 
-
 <div class="card">
-
 <h3>Level Up Bonus</h3>
-
-<div class="value">₹0</div>
-
+<div class="amount">₹0</div>
 </div>
 
 
-
 <div class="card">
-
 <h3>Total Income</h3>
-
-<div class="value">₹0</div>
-
+<div class="amount">₹0</div>
 </div>
 
-
-
-<div class="card">
-
-<h3>Team Details</h3>
-
-<p>Total Team: 0</p>
-
-<p>Active Members: 0</p>
-
-</div>
-
-
-
-<button onclick="logout()">
-Logout
-</button>
 
 
 </div>
@@ -184,14 +217,39 @@ Logout
 
 <script>
 
+
 let user=JSON.parse(localStorage.getItem("loginUser"));
 
 
 if(user){
 
-document.getElementById("username").innerHTML=user.name;
+document.getElementById("name").innerHTML=user.name;
 
-document.getElementById("gwiid").innerHTML=user.gwiid;
+document.getElementById("id").innerHTML=user.gwiid;
+
+
+if(user.photo){
+
+document.getElementById("photo").src=user.photo;
+
+}
+
+}
+
+
+function openMenu(){
+
+let m=document.getElementById("menu");
+
+if(m.style.display=="block"){
+
+m.style.display="none";
+
+}else{
+
+m.style.display="block";
+
+}
 
 }
 
@@ -209,5 +267,4 @@ window.location.href="login.html";
 
 
 </body>
-
 </html>
