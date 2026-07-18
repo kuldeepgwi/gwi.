@@ -1,64 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>GWI Premium Dashboard</title>
 
-<title>GWI Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
 *{
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial,sans-serif;
 }
 
 body{
 margin:0;
-background:linear-gradient(135deg,#141e30,#243b55);
+background:#050505;
 color:white;
 }
-
 
 .header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 20px;
-background:#111;
+text-align:center;
+padding:20px;
+background:linear-gradient(135deg,#000,#241000);
+border-bottom:2px solid gold;
+}
+
+.header h1{
+margin:0;
+font-size:25px;
+color:#ffd700;
+text-shadow:0 0 10px gold;
+}
+
+.header p{
+margin:5px;
+font-size:16px;
 }
 
 
-.logo{
-font-size:32px;
-font-weight:bold;
-color:#00ffff;
+.menu{
+position:absolute;
+right:15px;
+top:20px;
 }
 
-
-button{
+.menu button{
 background:none;
 border:0;
-font-size:32px;
-color:white;
+font-size:35px;
+color:gold;
 }
 
 
 .dropdown{
 display:none;
 position:absolute;
-right:15px;
-top:65px;
-background:#222;
+right:0;
+background:#111;
+width:220px;
+border:1px solid gold;
 border-radius:15px;
 overflow:hidden;
-width:220px;
 }
-
 
 .dropdown p{
 padding:12px;
 margin:0;
-border-bottom:1px solid #555;
+border-bottom:1px solid #333;
 }
 
 
@@ -68,16 +76,15 @@ padding:15px;
 
 
 .card{
-padding:20px;
 border-radius:20px;
+padding:20px;
 margin-bottom:15px;
-box-shadow:0 5px 20px #0008;
-font-size:18px;
+box-shadow:0 0 15px #000;
 }
 
 
 .profile{
-background:linear-gradient(135deg,#667eea,#764ba2);
+background:linear-gradient(135deg,#6a11cb,#2575fc);
 text-align:center;
 }
 
@@ -88,7 +95,7 @@ background:linear-gradient(135deg,#11998e,#38ef7d);
 
 
 .week{
-background:linear-gradient(135deg,#fc4a1a,#f7b733);
+background:linear-gradient(135deg,#ff8008,#ffc837);
 }
 
 
@@ -98,7 +105,7 @@ background:linear-gradient(135deg,#4776e6,#8e54e9);
 
 
 .bonus{
-background:linear-gradient(135deg,#ff512f,#dd2476);
+background:linear-gradient(135deg,#ff416c,#ff4b2b);
 }
 
 
@@ -111,34 +118,31 @@ color:black;
 .money{
 font-size:30px;
 font-weight:bold;
-margin-top:10px;
 }
-
 
 </style>
 
 </head>
-
 
 <body>
 
 
 <div class="header">
 
-<div class="logo">GWI 🚀</div>
+<h1>✨ WELCOME TO ✨</h1>
+<p>🚀 GROWTH WITH INDIA FAMILY 🚀</p>
 
 
-<div>
+<div class="menu">
 
 <button onclick="openMenu()">⋮</button>
-
 
 <div class="dropdown" id="menu">
 
 <p>👤 Profile</p>
 <p>💰 Income Details</p>
 <p>👥 My Team</p>
-<p>🏆 12 Levels</p>
+<p>🏆 Levels</p>
 <p>🎁 Level Bonus</p>
 <p>💳 Withdrawal</p>
 <p>⚙️ Settings</p>
@@ -156,57 +160,39 @@ margin-top:10px;
 
 
 <div class="card profile">
-
 <h2>👤 User Name</h2>
 <p>🆔 GWI ID</p>
-
 </div>
-
 
 
 <div class="card income">
-
 <h3>💰 Today Income</h3>
 <div class="money">₹0</div>
-
 </div>
-
 
 
 <div class="card week">
-
 <h3>📊 Last 7 Days Income</h3>
 <div class="money">₹0</div>
-
 </div>
-
 
 
 <div class="card team">
-
 <h3>👥 N/W Income</h3>
 <div class="money">₹0</div>
-
 </div>
-
 
 
 <div class="card bonus">
-
 <h3>🏆 Level Up Bonus</h3>
 <div class="money">₹0</div>
-
 </div>
-
 
 
 <div class="card total">
-
 <h3>💎 Total Income</h3>
 <div class="money">₹0</div>
-
 </div>
-
 
 
 </div>
