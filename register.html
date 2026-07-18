@@ -88,16 +88,38 @@ color:gold;
 
 <input id="password" type="password" placeholder="Create Password">
 
+<input id="sponsor" placeholder="Sponsor GWI ID">
+
+
+<select id="state">
+<option>Select State</option>
+<option>Rajasthan</option>
+<option>Delhi</option>
+<option>Gujarat</option>
+<option>Haryana</option>
+<option>Maharashtra</option>
+<option>Other</option>
+</select>
+
+
+<select id="country">
+<option>Select Country</option>
+<option>India</option>
+<option>Other Country</option>
+</select>
+
 
 <button onclick="register()">REGISTER</button>
 
 
 <p id="result"></p>
 
+
 <p>
 Already Member?
 <a href="login.html">Login</a>
 </p>
+
 
 </div>
 
@@ -108,12 +130,18 @@ function register(){
 
 let id="GWI"+Math.floor(10000+Math.random()*90000);
 
+
 let user={
+
 name:document.getElementById("name").value,
 mobile:document.getElementById("mobile").value,
 email:document.getElementById("email").value,
 password:document.getElementById("password").value,
+sponsor:document.getElementById("sponsor").value,
+state:document.getElementById("state").value,
+country:document.getElementById("country").value,
 gwiid:id
+
 };
 
 
