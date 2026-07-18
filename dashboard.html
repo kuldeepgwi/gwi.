@@ -3,13 +3,14 @@
 <head>
 
 <title>GWI Dashboard</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
 *{
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:Arial;
 }
 
 body{
@@ -18,7 +19,6 @@ background:#000;
 color:white;
 }
 
-/* Header */
 
 .header{
 height:70px;
@@ -30,18 +30,13 @@ padding:0 20px;
 border-bottom:2px solid gold;
 }
 
+
 .logo{
-color:gold;
 font-size:32px;
+color:gold;
 font-weight:bold;
 }
 
-
-/* Menu */
-
-.menu{
-position:relative;
-}
 
 .menu button{
 background:none;
@@ -50,221 +45,135 @@ color:gold;
 font-size:35px;
 }
 
+
 .dropdown{
+
 display:none;
 position:absolute;
-right:0;
+right:10px;
+top:60px;
 background:#111;
-width:220px;
+width:230px;
 border:1px solid gold;
 border-radius:15px;
-z-index:10;
 }
+
 
 .dropdown p{
-padding:12px;
+
+padding:14px;
 margin:0;
 border-bottom:1px solid #333;
+cursor:pointer;
+
 }
 
-
-/* Profile */
 
 .container{
 padding:20px;
 }
 
+
 .profile{
+
 background:#111;
 border:1px solid gold;
 border-radius:20px;
 padding:20px;
 text-align:center;
+
 }
 
+
 .profile img{
+
 width:120px;
 height:120px;
 border-radius:50%;
 border:3px solid gold;
-object-fit:cover;
+
 }
 
 
 .name{
-font-size:22px;
+
 color:gold;
+font-size:24px;
+
 }
 
 
-/* Income */
-
 .card{
+
 background:#111;
 border:1px solid gold;
 border-radius:15px;
-padding:18px;
+padding:15px;
 margin-top:15px;
+
 }
 
+
 .card h3{
+
 color:gold;
+
 }
 
 
 .amount{
+
 font-size:28px;
-font-weight:bold;
+
 }
 
-
-/* Button */
-
-button{
-cursor:pointer;
-}
 
 </style>
 
 </head>
-
 
 <body>
 
 
 <div class="header">
 
-<div class="logo">GWI</div>
+<div class="logo">
+GWI
+</div>
 
 
 <div class="menu">
 
 <button onclick="openMenu()">⋮</button>
 
+
 <div class="dropdown" id="menu">
 
-<p>Profile</p>
-<p>Income Details</p>
-<p>My Team</p>
-<p>Levels</p>
-<p>Level Bonus</p>
-<p>Withdrawal Request</p>
-<p>Withdrawal History</p>
-<p>Settings</p>
+
+<p onclick="profile()">Profile</p>
+
+<p onclick="income()">Income Details</p>
+
+<p onclick="team()">My Team</p>
+
+<p onclick="levels()">Levels</p>
+
+<p onclick="bonus()">Level Bonus</p>
+
+<p onclick="withdraw()">Withdrawal Request</p>
+
+<p onclick="history()">Withdrawal History</p>
+
+<p onclick="settings()">Settings</p>
+
 <p onclick="logout()">Logout</p>
 
-</div>
 
 </div>
 
 </div>
 
-
-
-<div class="container">
-
-
-<div class="profile">
-
-<img id="photo">
-
-<h2 class="name" id="name">
-User Name
-</h2>
-
-<p id="id">
-GWI ID
-</p>
-
 </div>
-
-
-
-<div class="card">
-<h3>Today Income</h3>
-<div class="amount">₹0</div>
 </div>
-
-
-<div class="card">
-<h3>Last 7 Days Income</h3>
-<div class="amount">₹0</div>
-</div>
-
-
-<div class="card">
-<h3>N/W Income</h3>
-<div class="amount">₹0</div>
-</div>
-
-
-<div class="card">
-<h3>Level Up Bonus</h3>
-<div class="amount">₹0</div>
-</div>
-
-
-<div class="card">
-<h3>Total Income</h3>
-<div class="amount">₹0</div>
-</div>
-
-
-
-</div>
-
-
-
-<script>
-
-
-let user=JSON.parse(localStorage.getItem("loginUser"));
-
-
-if(user){
-
-document.getElementById("name").innerHTML=user.name;
-
-document.getElementById("id").innerHTML=user.gwiid;
-
-
-if(user.photo){
-
-document.getElementById("photo").src=user.photo;
-
-}
-
-}
-
-
-function openMenu(){
-
-let m=document.getElementById("menu");
-
-if(m.style.display=="block"){
-
-m.style.display="none";
-
-}else{
-
-m.style.display="block";
-
-}
-
-}
-
-
-function logout(){
-
-localStorage.removeItem("loginUser");
-
-window.location.href="login.html";
-
-}
-
-
-</script>
-
-
 </body>
 </html>
