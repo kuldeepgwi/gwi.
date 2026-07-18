@@ -203,3 +203,169 @@ GWI
 </div>
 
 </div>
+<div class="container">
+
+
+<div class="profile">
+
+<img id="photo">
+
+<h2 class="name" id="name">
+User Name
+</h2>
+
+<p id="id">
+GWI ID
+</p>
+
+</div>
+
+
+
+<div class="card">
+<h3>Today Income</h3>
+<div class="amount">₹0</div>
+</div>
+
+
+<div class="card">
+<h3>Last 7 Days Income</h3>
+<div class="amount">₹0</div>
+</div>
+
+
+<div class="card">
+<h3>N/W Income</h3>
+<div class="amount">₹0</div>
+</div>
+
+
+<div class="card">
+<h3>Level Up Bonus</h3>
+<div class="amount">₹0</div>
+</div>
+
+
+<div class="card">
+<h3>Total Income</h3>
+<div class="amount">₹0</div>
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+function openMenu(){
+
+let menu=document.getElementById("menu");
+
+if(menu.style.display=="block"){
+
+menu.style.display="none";
+
+}
+else{
+
+menu.style.display="block";
+
+}
+
+}
+
+
+
+let user=JSON.parse(localStorage.getItem("loginUser"));
+
+
+if(user){
+
+document.getElementById("name").innerHTML=user.name || "User";
+
+document.getElementById("id").innerHTML=user.gwiid || "GWI ID";
+
+
+if(user.photo){
+
+document.getElementById("photo").src=user.photo;
+
+}
+
+}
+
+
+
+function profile(){
+
+alert("Profile Section");
+
+}
+
+
+function income(){
+
+alert("Income Details");
+
+}
+
+
+function team(){
+
+alert("My Team");
+
+}
+
+
+function levels(){
+
+alert("Levels Page");
+
+}
+
+
+function bonus(){
+
+alert("Level Bonus");
+
+}
+
+
+function withdraw(){
+
+alert("Withdrawal Request");
+
+}
+
+
+function history(){
+
+alert("Withdrawal History");
+
+}
+
+
+function settings(){
+
+alert("Settings");
+
+}
+
+
+
+function logout(){
+
+localStorage.removeItem("loginUser");
+
+window.location.href="login.html";
+
+}
+
+
+</script>
+
+
+</body>
+</html>
