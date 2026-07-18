@@ -1,19 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>GWI Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+margin:0;
+background:#000;
+color:white;
+}
+
+.header{
+text-align:center;
+padding:20px;
+background:#111;
+border-bottom:2px solid gold;
+}
+
+.header h1{
+margin:0;
+color:gold;
+text-shadow:0 0 10px gold;
+}
+
+.header h2{
+font-size:18px;
+}
+
+.menu{
+position:absolute;
+right:15px;
+top:15px;
+}
+
+.menu button{
+background:none;
+border:0;
+color:gold;
+font-size:35px;
+}
+
+.dropdown{
+display:none;
+position:absolute;
+right:0;
+background:#111;
+width:220px;
+border:1px solid gold;
+border-radius:15px;
+}
+
+.dropdown p{
+padding:12px;
+margin:0;
+border-bottom:1px solid #333;
+}
+
+
+.container{
+padding:15px;
+}
+
+
+.card{
+background:#111;
+border:2px solid gold;
+border-radius:20px;
+padding:20px;
+margin-bottom:15px;
+box-shadow:0 0 15px #b88600;
+}
+
+
+.profile{
+text-align:center;
+}
+
+
+.profile img{
+width:100px;
+height:100px;
+border-radius:50%;
+border:3px solid gold;
+object-fit:cover;
+}
+
+
+.name{
+color:gold;
+font-size:24px;
+}
+
+
+.amount{
+font-size:30px;
+font-weight:bold;
+}
+
+
+.title{
+color:gold;
+font-size:20px;
+font-weight:bold;
+}
+
+
+.icon{
+font-size:35px;
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="header">
+
+<h1>✨ WELCOME TO ✨</h1>
+<h2>🚀 GROWTH WITH INDIA FAMILY 🚀</h2>
+
+
+<div class="menu">
+
+<button onclick="openMenu()">⋮</button>
+
+<div class="dropdown" id="menu">
+
+<p>👤 Profile</p>
+<p>💰 Income Details</p>
+<p>👥 My Team</p>
+<p>🏆 12 Levels</p>
+<p>🎁 Level Bonus</p>
+<p>💳 Withdrawal</p>
+<p>⚙️ Settings</p>
+<p onclick="logout()">🚪 Logout</p>
+
+</div>
+
+</div>
+
 </div>
 
 
 
-<div class="card bonus">
+<div class="container">
+
+
+<div class="card profile">
+
+<img id="photo" src="">
+
+<h2 class="name" id="name">
+User Name
+</h2>
+
+<p id="id">
+GWI ID
+</p>
+
+</div>
+
+
+
+<div class="card">
+<div class="icon">💰</div>
+<div class="title">Today Income</div>
+<div class="amount">₹0</div>
+</div>
+
+
+<div class="card">
+<div class="icon">📊</div>
+<div class="title">Last 7 Days Income</div>
+<div class="amount">₹0</div>
+</div>
+
+
+<div class="card">
+<div class="icon">👥</div>
+<div class="title">N/W Income</div>
+<div class="amount">₹0</div>
+</div>
+
+
+<div class="card">
 <div class="icon">🏆</div>
-Level Up Bonus
-<div class="money">₹0</div>
+<div class="title">Level Up Bonus</div>
+<div class="amount">₹0</div>
 </div>
 
 
-
-<div class="card total">
+<div class="card">
 <div class="icon">💎</div>
-Total Income
-<div class="money">₹0</div>
+<div class="title">Total Income</div>
+<div class="amount">₹0</div>
 </div>
 
 
@@ -28,6 +220,36 @@ function openMenu(){
 let x=document.getElementById("menu");
 
 x.style.display=x.style.display=="block"?"none":"block";
+
+}
+
+
+
+let user=JSON.parse(localStorage.getItem("loginUser"));
+
+
+if(user){
+
+document.getElementById("name").innerHTML=user.name || "User";
+
+document.getElementById("id").innerHTML=user.gwiid || "GWI ID";
+
+
+if(user.photo){
+
+document.getElementById("photo").src=user.photo;
+
+}
+
+}
+
+
+
+function logout(){
+
+localStorage.removeItem("loginUser");
+
+location.href="login.html";
 
 }
 
