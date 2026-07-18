@@ -1,96 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>GWI Professional Dashboard</title>
+
+<title>GWI Dashboard</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
+*{
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
 body{
     margin:0;
-    font-family:Arial,sans-serif;
     background:#000;
     color:white;
 }
 
 .header{
     text-align:center;
-    padding:20px;
+    padding:25px;
     background:#111;
     border-bottom:2px solid gold;
 }
 
 .logo{
-    font-size:35px;
+    color:gold;
+    font-size:40px;
     font-weight:bold;
-    color:gold;
 }
 
-.header p{
-    color:#ddd;
+.company{
+    font-size:18px;
 }
 
 
-.profile{
-    margin:15px;
+.container{
     padding:20px;
-    background:#111;
-    border:1px solid gold;
-    border-radius:15px;
-}
-
-
-.info{
-    display:flex;
-    justify-content:space-between;
-}
-
-
-.title{
-    color:gold;
-    font-size:15px;
 }
 
 
 .card{
-    margin:15px;
-    padding:20px;
     background:#111;
-    border-radius:15px;
     border:1px solid gold;
-    box-shadow:0 0 8px #444;
+    border-radius:15px;
+    padding:20px;
+    margin:15px 0;
+    box-shadow:0 0 15px #d4af37;
+}
+
+
+.card h3{
+    color:gold;
+    margin:0 0 10px;
 }
 
 
 .amount{
     font-size:30px;
-}
-
-
-.level{
-    color:gold;
-    font-size:22px;
-}
-
-
-button{
-    width:90%;
-    margin:10px 5%;
-    padding:15px;
-    border:none;
-    border-radius:30px;
-    background:gold;
-    color:black;
-    font-size:18px;
     font-weight:bold;
 }
 
 
-.footer{
+.profile{
     text-align:center;
-    padding:20px;
-    color:#aaa;
+}
+
+
+button{
+    width:100%;
+    padding:15px;
+    background:gold;
+    border:none;
+    border-radius:25px;
+    font-size:18px;
+    font-weight:bold;
+    margin-top:20px;
 }
 
 
@@ -106,107 +93,121 @@ button{
 
 <div class="logo">GWI</div>
 
-<h2>INCOME DASHBOARD</h2>
-
-<p>Growth With India</p>
-
-</div>
-
-
-
-<div class="profile">
-
-
-<div class="info">
-
-<div>
-<p class="title">Name</p>
-<h3>Kuldeep Singh</h3>
-</div>
-
-
-<div>
-<p class="title">GWI ID</p>
-<h3>GWI001</h3>
+<div class="company">
+Growth With India
 </div>
 
 </div>
 
 
-<p class="title">Sponsor ID</p>
-<h3>GWI000</h3>
+
+<div class="container">
 
 
-</div>
+<div class="card profile">
 
+<h3>Profile</h3>
 
+<p>Name: User Name</p>
 
+<p>GWI ID: GWI0001</p>
 
-<div class="card">
-<p class="title">TODAY INCOME</p>
-<h2 class="amount">₹0</h2>
 </div>
 
 
 
 <div class="card">
-<p class="title">LAST 7 DAYS EARNING</p>
-<h2 class="amount">₹0</h2>
+
+<h3>Today Income</h3>
+
+<div class="amount">
+₹0
+</div>
+
 </div>
 
 
 
 <div class="card">
-<p class="title">N/W INCOME</p>
-<h2 class="amount">₹0</h2>
+
+<h3>Total Income</h3>
+
+<div class="amount">
+₹0
+</div>
+
 </div>
 
 
 
 <div class="card">
-<p class="title">LEVEL UP BONUS</p>
-<h2 class="amount">₹0</h2>
+
+<h3>Level Up Bonus</h3>
+
+<div class="amount">
+₹0
+</div>
+
 </div>
 
 
 
 <div class="card">
-<p class="title">TOTAL INCOME</p>
-<h2 class="amount">₹0</h2>
-</div>
 
+<h3>Last 7 Days Income</h3>
+
+<p>
+Day 1: ₹0
+</p>
+
+<p>
+Day 2: ₹0
+</p>
+
+<p>
+Day 3: ₹0
+</p>
+
+</div>
 
 
 
 <div class="card">
 
-<p class="title">CURRENT LEVEL</p>
+<h3>Team Details</h3>
 
-<h2 class="level">STARTER</h2>
+<p>
+Total Team: 0
+</p>
+
+<p>
+Active Members: 0
+</p>
+
+</div>
+
+
+
+<button onclick="logout()">
+Logout
+</button>
+
 
 </div>
 
 
 
+<script>
 
-<button>MY TEAM</button>
+function logout(){
 
-<button>INCOME HISTORY</button>
+window.location.href="login.html";
 
-<button>WITHDRAW</button>
+}
 
-<button>LOGOUT</button>
-
-
-
-
-<div class="footer">
-
-© 2026 Growth With India
-
-</div>
-
+</script>
 
 
 </body>
+
 </html>
