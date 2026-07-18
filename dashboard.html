@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>GWI Premium Dashboard</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
 *{
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
 margin:0;
-background:#050505;
+background:linear-gradient(135deg,#090979,#020024,#00d4ff);
 color:white;
 }
 
+
+/* Top */
+
 .header{
 text-align:center;
-padding:20px;
-background:linear-gradient(135deg,#000,#241000);
+padding:25px 15px;
+background:rgba(0,0,0,.5);
 border-bottom:2px solid gold;
 }
 
+
 .header h1{
 margin:0;
-font-size:25px;
+font-size:24px;
+font-weight:800;
 color:#ffd700;
-text-shadow:0 0 10px gold;
+text-shadow:0 0 15px gold;
 }
 
-.header p{
+
+.header h2{
 margin:5px;
-font-size:16px;
+font-size:22px;
+font-weight:800;
+background:linear-gradient(90deg,#ffd700,#ff00ff,#00ffff);
+-webkit-background-clip:text;
+color:transparent;
 }
 
 
@@ -44,11 +57,12 @@ right:15px;
 top:20px;
 }
 
+
 .menu button{
+font-size:35px;
+color:white;
 background:none;
 border:0;
-font-size:35px;
-color:gold;
 }
 
 
@@ -56,18 +70,21 @@ color:gold;
 display:none;
 position:absolute;
 right:0;
+top:45px;
+width:230px;
 background:#111;
-width:220px;
-border:1px solid gold;
 border-radius:15px;
 overflow:hidden;
+border:1px solid gold;
 }
 
+
 .dropdown p{
-padding:12px;
+padding:13px;
 margin:0;
 border-bottom:1px solid #333;
 }
+
 
 
 .container{
@@ -75,27 +92,30 @@ padding:15px;
 }
 
 
+
 .card{
-border-radius:20px;
 padding:20px;
+border-radius:25px;
 margin-bottom:15px;
-box-shadow:0 0 15px #000;
+box-shadow:0 0 20px #0008;
+font-weight:600;
 }
 
 
 .profile{
-background:linear-gradient(135deg,#6a11cb,#2575fc);
+background:linear-gradient(135deg,#ff512f,#dd2476);
 text-align:center;
 }
 
 
 .income{
-background:linear-gradient(135deg,#11998e,#38ef7d);
+background:linear-gradient(135deg,#00b09b,#96c93d);
 }
 
 
 .week{
-background:linear-gradient(135deg,#ff8008,#ffc837);
+background:linear-gradient(135deg,#f7971e,#ffd200);
+color:black;
 }
 
 
@@ -105,20 +125,26 @@ background:linear-gradient(135deg,#4776e6,#8e54e9);
 
 
 .bonus{
-background:linear-gradient(135deg,#ff416c,#ff4b2b);
+background:linear-gradient(135deg,#8e2de2,#4a00e0);
 }
 
 
 .total{
-background:linear-gradient(135deg,#f7971e,#ffd200);
-color:black;
+background:linear-gradient(135deg,#f12711,#f5af19);
+}
+
+
+.icon{
+font-size:35px;
 }
 
 
 .money{
-font-size:30px;
-font-weight:bold;
+font-size:32px;
+font-weight:800;
+margin-top:8px;
 }
+
 
 </style>
 
@@ -130,7 +156,7 @@ font-weight:bold;
 <div class="header">
 
 <h1>✨ WELCOME TO ✨</h1>
-<p>🚀 GROWTH WITH INDIA FAMILY 🚀</p>
+<h2>🚀 GROWTH WITH INDIA FAMILY 🚀</h2>
 
 
 <div class="menu">
@@ -142,11 +168,10 @@ font-weight:bold;
 <p>👤 Profile</p>
 <p>💰 Income Details</p>
 <p>👥 My Team</p>
-<p>🏆 Levels</p>
+<p>🏆 12 Levels</p>
 <p>🎁 Level Bonus</p>
 <p>💳 Withdrawal</p>
 <p>⚙️ Settings</p>
-<p onclick="logout()">🚪 Logout</p>
 
 </div>
 
@@ -160,37 +185,48 @@ font-weight:bold;
 
 
 <div class="card profile">
-<h2>👤 User Name</h2>
+<div class="icon">👤</div>
+<h2>User Name</h2>
 <p>🆔 GWI ID</p>
 </div>
 
 
+
 <div class="card income">
-<h3>💰 Today Income</h3>
+<div class="icon">💰</div>
+Today Income
 <div class="money">₹0</div>
 </div>
+
 
 
 <div class="card week">
-<h3>📊 Last 7 Days Income</h3>
+<div class="icon">📊</div>
+Last 7 Days Income
 <div class="money">₹0</div>
 </div>
+
 
 
 <div class="card team">
-<h3>👥 N/W Income</h3>
+<div class="icon">👥</div>
+N/W Income
 <div class="money">₹0</div>
 </div>
+
 
 
 <div class="card bonus">
-<h3>🏆 Level Up Bonus</h3>
+<div class="icon">🏆</div>
+Level Up Bonus
 <div class="money">₹0</div>
 </div>
 
 
+
 <div class="card total">
-<h3>💎 Total Income</h3>
+<div class="icon">💎</div>
+Total Income
 <div class="money">₹0</div>
 </div>
 
@@ -206,14 +242,6 @@ function openMenu(){
 let x=document.getElementById("menu");
 
 x.style.display=x.style.display=="block"?"none":"block";
-
-}
-
-
-function logout(){
-
-localStorage.removeItem("loginUser");
-location.href="login.html";
 
 }
 
