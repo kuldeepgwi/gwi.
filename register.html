@@ -1,52 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GWI Registration</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+width:350px;
+background:#fff;
+padding:20px;
+border-radius:10px;
+}
+
+h2{
+text-align:center;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin:8px 0;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#000;
+color:#fff;
+border:none;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#222;
+}
+
+a{
+text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>GWI Registration</h2>
+
+<form id="registerForm">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="text" id="mobile" placeholder="Mobile Number" required>
+
+<input type="email" id="email" placeholder="Email" required>
+
+<input type="password" id="password" placeholder="Password" required>
+
+<input type="text" id="sponsor" placeholder="Sponsor ID">
+
+<select id="state">
+<option>Rajasthan</option>
+<option>Delhi</option>
+<option>UP</option>
+<option>MP</option>
+<option>Other</option>
+</select>
+
+<select id="country">
+<option>India</option>
 <option>Other Country</option>
 </select>
 
+<button type="submit">REGISTER</button>
 
-<button onclick="register()">REGISTER</button>
+</form>
 
-
-<p id="result"></p>
-
-
-<p>
+<p style="text-align:center">
 Already Member?
 <a href="login.html">Login</a>
 </p>
 
-
 </div>
 
-
-<script>
-
-function register(){
-
-let id="GWI"+Math.floor(10000+Math.random()*90000);
-
-
-let user={
-
-name:document.getElementById("name").value,
-mobile:document.getElementById("mobile").value,
-email:document.getElementById("email").value,
-password:document.getElementById("password").value,
-sponsor:document.getElementById("sponsor").value,
-state:document.getElementById("state").value,
-country:document.getElementById("country").value,
-gwiid:id
-
-};
-
-
-localStorage.setItem("gwiUser",JSON.stringify(user));
-
-
-document.getElementById("result").innerHTML=
-"Your GWI ID: "+id;
-
-}
-
-</script>
+<script type="module" src="register.js"></script>
 
 </body>
 </html>
