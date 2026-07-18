@@ -1,25 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GWI Royal Dashboard</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+margin:0;
+background:#000;
+color:white;
+}
+
+
+/* Header */
+
+.header{
+background:linear-gradient(180deg,#151515,#000);
+text-align:center;
+padding:25px 10px;
+border-bottom:2px solid #d4af37;
+}
+
+
+.header h1{
+margin:0;
+font-size:26px;
+color:#d4af37;
+text-shadow:0 0 12px #d4af37;
+}
+
+
+.header h2{
+margin:8px;
+font-size:20px;
+color:white;
+}
+
+
+/* Menu */
+
+.menu{
+position:absolute;
+right:15px;
+top:20px;
+}
+
+
+.menu button{
+background:none;
+border:0;
+font-size:36px;
+color:#d4af37;
+}
+
+
+.dropdown{
+display:none;
+position:absolute;
+right:0;
+width:220px;
+background:#111;
+border:1px solid #d4af37;
+border-radius:15px;
+overflow:hidden;
+}
+
+
+.dropdown p{
+margin:0;
+padding:13px;
+border-bottom:1px solid #333;
+}
+
+
+/* Main */
+
+.container{
+padding:15px;
+}
+
+
+/* Profile */
+
+.profile{
+
+background:#111;
+border:2px solid #d4af37;
+border-radius:25px;
+padding:20px;
+text-align:center;
+box-shadow:0 0 20px #d4af37;
+
+}
+
+
+.profile img{
+
+width:100px;
+height:100px;
+border-radius:50%;
+border:3px solid #d4af37;
+object-fit:cover;
+
+}
+
+
+.name{
+
+font-size:25px;
+color:#d4af37;
+
+}
+
+
+/* Cards */
+
+
+.card{
+
+background:#111;
+border:1.5px solid #d4af37;
+border-radius:20px;
+padding:18px;
+margin-top:15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+}
+
+
+.left{
+
+display:flex;
+align-items:center;
+gap:15px;
+
+}
+
+
 .icon{
+
 font-size:35px;
+
 }
 
 
 .title{
-font-size:19px;
-color:gold;
+
+color:#d4af37;
 font-weight:bold;
+
 }
 
 
 .amount{
-font-size:30px;
+
+font-size:28px;
 font-weight:bold;
-margin-top:8px;
+
 }
 
 
 </style>
-</head>
 
+</head>
 
 <body>
 
@@ -27,12 +178,14 @@ margin-top:8px;
 <div class="header">
 
 <h1>✨ WELCOME TO ✨</h1>
+
 <h2>🚀 GROWTH WITH INDIA FAMILY 🚀</h2>
 
 
 <div class="menu">
 
 <button onclick="openMenu()">⋮</button>
+
 
 <div class="dropdown" id="menu">
 
@@ -43,7 +196,6 @@ margin-top:8px;
 <p>🎁 Level Bonus</p>
 <p>💳 Withdrawal</p>
 <p>⚙️ Settings</p>
-<p onclick="logout()">🚪 Logout</p>
 
 </div>
 
@@ -56,56 +208,64 @@ margin-top:8px;
 <div class="container">
 
 
-<div class="card profile">
+<div class="profile">
 
 <img id="photo">
 
-<h2 class="name" id="name">
-User Name
-</h2>
+<h2 class="name" id="name">User Name</h2>
 
 <p id="id">GWI ID</p>
 
 </div>
 
 
+
 <div class="card">
+<div class="left">
 <div class="icon">💰</div>
 <div class="title">Today Income</div>
+</div>
 <div class="amount">₹0</div>
 </div>
 
 
 <div class="card">
+<div class="left">
 <div class="icon">📊</div>
-<div class="title">Last 7 Days Income</div>
+<div class="title">Last 7 Days</div>
+</div>
 <div class="amount">₹0</div>
 </div>
 
 
 <div class="card">
+<div class="left">
 <div class="icon">👥</div>
 <div class="title">N/W Income</div>
+</div>
 <div class="amount">₹0</div>
 </div>
 
 
 <div class="card">
+<div class="left">
 <div class="icon">🏆</div>
-<div class="title">Level Up Bonus</div>
+<div class="title">Level Bonus</div>
+</div>
 <div class="amount">₹0</div>
 </div>
 
 
 <div class="card">
+<div class="left">
 <div class="icon">💎</div>
 <div class="title">Total Income</div>
+</div>
 <div class="amount">₹0</div>
 </div>
 
 
 </div>
-
 
 
 <script>
@@ -121,7 +281,6 @@ m.style.display=m.style.display=="block"?"none":"block";
 
 let user=JSON.parse(localStorage.getItem("loginUser"));
 
-
 if(user){
 
 document.getElementById("name").innerHTML=user.name || "User";
@@ -134,14 +293,6 @@ if(user.photo){
 document.getElementById("photo").src=user.photo;
 
 }
-
-}
-
-
-function logout(){
-
-localStorage.removeItem("loginUser");
-location.href="login.html";
 
 }
 
