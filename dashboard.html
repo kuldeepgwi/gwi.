@@ -10,7 +10,7 @@
 
 *{
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial,sans-serif;
 }
 
 body{
@@ -19,6 +19,8 @@ background:#000;
 color:white;
 }
 
+
+/* Header */
 
 .header{
 height:70px;
@@ -33,16 +35,26 @@ border-bottom:2px solid gold;
 
 .logo{
 font-size:32px;
-color:gold;
 font-weight:bold;
+color:gold;
+}
+
+
+/* Menu */
+
+.menu{
+position:relative;
 }
 
 
 .menu button{
+
 background:none;
 border:none;
 color:gold;
 font-size:35px;
+cursor:pointer;
+
 }
 
 
@@ -50,27 +62,41 @@ font-size:35px;
 
 display:none;
 position:absolute;
-right:10px;
-top:60px;
+right:0;
+top:45px;
 background:#111;
 width:230px;
 border:1px solid gold;
 border-radius:15px;
+overflow:hidden;
+z-index:99;
+
 }
 
 
 .dropdown p{
 
-padding:14px;
 margin:0;
+padding:14px;
 border-bottom:1px solid #333;
 cursor:pointer;
 
 }
 
 
+.dropdown p:hover{
+
+background:#222;
+
+}
+
+
+/* Main */
+
 .container{
+
 padding:20px;
+
 }
 
 
@@ -91,6 +117,7 @@ width:120px;
 height:120px;
 border-radius:50%;
 border:3px solid gold;
+object-fit:cover;
 
 }
 
@@ -108,7 +135,7 @@ font-size:24px;
 background:#111;
 border:1px solid gold;
 border-radius:15px;
-padding:15px;
+padding:18px;
 margin-top:15px;
 
 }
@@ -124,6 +151,7 @@ color:gold;
 .amount{
 
 font-size:28px;
+font-weight:bold;
 
 }
 
@@ -131,6 +159,7 @@ font-size:28px;
 </style>
 
 </head>
+
 
 <body>
 
@@ -174,6 +203,3 @@ GWI
 </div>
 
 </div>
-</div>
-</body>
-</html>
