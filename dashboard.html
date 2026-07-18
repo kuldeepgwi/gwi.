@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>GWI Royal Dashboard</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>GWI Premium Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
@@ -13,33 +14,35 @@ font-family:Arial,sans-serif;
 
 body{
 margin:0;
-background:#000;
-color:white;
+background:#ffffff;
+color:#000;
 }
 
 
 /* Header */
 
 .header{
-background:linear-gradient(180deg,#151515,#000);
 text-align:center;
 padding:25px 10px;
-border-bottom:2px solid #d4af37;
+background:#fff;
+border-bottom:3px solid gold;
+box-shadow:0 3px 15px #d4af37;
 }
 
 
 .header h1{
 margin:0;
 font-size:26px;
-color:#d4af37;
-text-shadow:0 0 12px #d4af37;
+color:#000;
+font-weight:800;
 }
 
 
 .header h2{
 margin:8px;
-font-size:20px;
-color:white;
+font-size:22px;
+color:#c99700;
+font-weight:bold;
 }
 
 
@@ -55,8 +58,8 @@ top:20px;
 .menu button{
 background:none;
 border:0;
-font-size:36px;
-color:#d4af37;
+font-size:35px;
+color:#c99700;
 }
 
 
@@ -64,9 +67,9 @@ color:#d4af37;
 display:none;
 position:absolute;
 right:0;
+background:#fff;
 width:220px;
-background:#111;
-border:1px solid #d4af37;
+border:2px solid gold;
 border-radius:15px;
 overflow:hidden;
 }
@@ -75,8 +78,10 @@ overflow:hidden;
 .dropdown p{
 margin:0;
 padding:13px;
-border-bottom:1px solid #333;
+border-bottom:1px solid #ddd;
+color:#000;
 }
+
 
 
 /* Main */
@@ -86,12 +91,13 @@ padding:15px;
 }
 
 
+
 /* Profile */
 
 .profile{
 
-background:#111;
-border:2px solid #d4af37;
+background:#fff;
+border:3px solid gold;
 border-radius:25px;
 padding:20px;
 text-align:center;
@@ -102,10 +108,10 @@ box-shadow:0 0 20px #d4af37;
 
 .profile img{
 
-width:100px;
-height:100px;
+width:110px;
+height:110px;
 border-radius:50%;
-border:3px solid #d4af37;
+border:4px solid gold;
 object-fit:cover;
 
 }
@@ -113,10 +119,12 @@ object-fit:cover;
 
 .name{
 
-font-size:25px;
-color:#d4af37;
+color:#000;
+font-size:26px;
+font-weight:800;
 
 }
+
 
 
 /* Cards */
@@ -124,47 +132,42 @@ color:#d4af37;
 
 .card{
 
-background:#111;
-border:1.5px solid #d4af37;
+background:#fff;
+border:2px solid gold;
 border-radius:20px;
 padding:18px;
 margin-top:15px;
 display:flex;
 align-items:center;
 justify-content:space-between;
+box-shadow:0 0 15px #ddd;
 
 }
 
 
 .left{
-
 display:flex;
 align-items:center;
 gap:15px;
-
 }
 
 
 .icon{
-
 font-size:35px;
-
 }
 
 
 .title{
-
-color:#d4af37;
+font-size:18px;
 font-weight:bold;
-
+color:#000;
 }
 
 
 .amount{
-
-font-size:28px;
-font-weight:bold;
-
+font-size:30px;
+font-weight:800;
+color:#000;
 }
 
 
@@ -172,13 +175,13 @@ font-weight:bold;
 
 </head>
 
+
 <body>
 
 
 <div class="header">
 
 <h1>✨ WELCOME TO ✨</h1>
-
 <h2>🚀 GROWTH WITH INDIA FAMILY 🚀</h2>
 
 
@@ -232,7 +235,7 @@ font-weight:bold;
 <div class="card">
 <div class="left">
 <div class="icon">📊</div>
-<div class="title">Last 7 Days</div>
+<div class="title">Last 7 Days Income</div>
 </div>
 <div class="amount">₹0</div>
 </div>
@@ -250,7 +253,7 @@ font-weight:bold;
 <div class="card">
 <div class="left">
 <div class="icon">🏆</div>
-<div class="title">Level Bonus</div>
+<div class="title">Level Up Bonus</div>
 </div>
 <div class="amount">₹0</div>
 </div>
@@ -268,18 +271,20 @@ font-weight:bold;
 </div>
 
 
+
 <script>
 
 function openMenu(){
 
-let m=document.getElementById("menu");
+let x=document.getElementById("menu");
 
-m.style.display=m.style.display=="block"?"none":"block";
+x.style.display=x.style.display=="block"?"none":"block";
 
 }
 
 
 let user=JSON.parse(localStorage.getItem("loginUser"));
+
 
 if(user){
 
