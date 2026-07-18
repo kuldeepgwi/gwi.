@@ -9,75 +9,70 @@
 <style>
 
 *{
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    margin:0;
-    background:#000;
-    color:white;
+margin:0;
+background:#000;
+color:white;
 }
 
 .header{
-    text-align:center;
-    padding:25px;
-    background:#111;
-    border-bottom:2px solid gold;
+text-align:center;
+padding:25px;
+background:#111;
+border-bottom:2px solid gold;
 }
 
 .logo{
-    color:gold;
-    font-size:40px;
-    font-weight:bold;
+font-size:42px;
+font-weight:bold;
+color:gold;
 }
 
 .company{
-    font-size:18px;
+font-size:18px;
 }
 
 
 .container{
-    padding:20px;
+padding:20px;
 }
 
 
 .card{
-    background:#111;
-    border:1px solid gold;
-    border-radius:15px;
-    padding:20px;
-    margin:15px 0;
-    box-shadow:0 0 15px #d4af37;
+background:#111;
+border:1px solid gold;
+border-radius:15px;
+padding:20px;
+margin:15px 0;
+box-shadow:0 0 15px #d4af37;
 }
 
 
 .card h3{
-    color:gold;
-    margin:0 0 10px;
+color:gold;
+margin-top:0;
 }
 
 
-.amount{
-    font-size:30px;
-    font-weight:bold;
-}
-
-
-.profile{
-    text-align:center;
+.value{
+font-size:28px;
+font-weight:bold;
 }
 
 
 button{
-    width:100%;
-    padding:15px;
-    background:gold;
-    border:none;
-    border-radius:25px;
-    font-size:18px;
-    font-weight:bold;
-    margin-top:20px;
+width:100%;
+padding:15px;
+margin-top:20px;
+background:gold;
+border:none;
+border-radius:25px;
+font-size:18px;
+font-weight:bold;
 }
 
 
@@ -104,13 +99,13 @@ Growth With India
 <div class="container">
 
 
-<div class="card profile">
+<div class="card">
 
 <h3>Profile</h3>
 
-<p>Name: User Name</p>
+<p>Name: <span id="username">User</span></p>
 
-<p>GWI ID: GWI0001</p>
+<p>GWI ID: <span id="gwiid">GWI0000</span></p>
 
 </div>
 
@@ -120,33 +115,7 @@ Growth With India
 
 <h3>Today Income</h3>
 
-<div class="amount">
-₹0
-</div>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>Total Income</h3>
-
-<div class="amount">
-₹0
-</div>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>Level Up Bonus</h3>
-
-<div class="amount">
-₹0
-</div>
+<div class="value">₹0</div>
 
 </div>
 
@@ -156,17 +125,37 @@ Growth With India
 
 <h3>Last 7 Days Income</h3>
 
-<p>
-Day 1: ₹0
-</p>
+<div class="value">₹0</div>
 
-<p>
-Day 2: ₹0
-</p>
+</div>
 
-<p>
-Day 3: ₹0
-</p>
+
+
+<div class="card">
+
+<h3>N/W Income</h3>
+
+<div class="value">₹0</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Level Up Bonus</h3>
+
+<div class="value">₹0</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Total Income</h3>
+
+<div class="value">₹0</div>
 
 </div>
 
@@ -176,13 +165,9 @@ Day 3: ₹0
 
 <h3>Team Details</h3>
 
-<p>
-Total Team: 0
-</p>
+<p>Total Team: 0</p>
 
-<p>
-Active Members: 0
-</p>
+<p>Active Members: 0</p>
 
 </div>
 
@@ -199,11 +184,26 @@ Logout
 
 <script>
 
+let user=JSON.parse(localStorage.getItem("loginUser"));
+
+
+if(user){
+
+document.getElementById("username").innerHTML=user.name;
+
+document.getElementById("gwiid").innerHTML=user.gwiid;
+
+}
+
+
 function logout(){
+
+localStorage.removeItem("loginUser");
 
 window.location.href="login.html";
 
 }
+
 
 </script>
 
