@@ -1,113 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>GWI Dashboard</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-
-*{
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
 margin:0;
 background:#000;
 color:white;
+font-family:Arial;
 }
 
 .header{
-height:70px;
-background:#111;
 display:flex;
-align-items:center;
 justify-content:space-between;
-padding:0 20px;
+padding:15px;
+background:#111;
 border-bottom:2px solid gold;
 }
 
 .logo{
 color:gold;
-font-size:32px;
+font-size:30px;
 font-weight:bold;
 }
 
-.menu{
-position:relative;
-}
-
-.menu button{
+button{
 background:none;
-border:none;
+border:0;
 color:gold;
-font-size:35px;
-cursor:pointer;
+font-size:30px;
 }
 
-.dropdown{
+.menu{
 display:none;
 position:absolute;
-right:0;
-top:45px;
-width:230px;
+right:10px;
+top:60px;
+background:#111;
+border:1px solid gold;
+border-radius:10px;
+}
+
+.menu p{
+padding:10px 20px;
+margin:0;
+border-bottom:1px solid #333;
+}
+
+
+.container{
+padding:15px;
+}
+
+.box{
 background:#111;
 border:1px solid gold;
 border-radius:15px;
-z-index:99;
-}
-
-.dropdown p{
-margin:0;
-padding:14px;
-border-bottom:1px solid #333;
-cursor:pointer;
-}
-
-.dropdown p:hover{
-background:#222;
-}
-
-.container{
-padding:20px;
-}
-
-.profile{
-background:#111;
-border:1px solid gold;
-border-radius:20px;
-padding:20px;
+padding:15px;
+margin-bottom:15px;
 text-align:center;
 }
 
-.profile img{
-width:120px;
-height:120px;
-border-radius:50%;
-border:3px solid gold;
-}
-
-.name{
-color:gold;
-font-size:24px;
-}
-
-.card{
-background:#111;
-border:1px solid gold;
-border-radius:15px;
-padding:18px;
-margin-top:15px;
-}
-
-.card h3{
+.gold{
 color:gold;
 }
 
-.amount{
-font-size:28px;
+.money{
+font-size:25px;
 font-weight:bold;
 }
 
@@ -120,75 +82,48 @@ font-weight:bold;
 
 <div class="header">
 
-<div class="logo">
-GWI
-</div>
+<div class="logo">GWI</div>
 
+<div>
+<button onclick="show()">⋮</button>
 
-<div class="menu">
-
-<button onclick="openMenu()">⋮</button>
-
-
-<div class="dropdown" id="menu">
-
-<p onclick="profile()">Profile</p>
-<p onclick="income()">Income Details</p>
-<p onclick="team()">My Team</p>
-<p onclick="levels()">Levels</p>
-<p onclick="bonus()">Level Bonus</p>
-<p onclick="withdraw()">Withdrawal Request</p>
-<p onclick="history()">Withdrawal History</p>
-<p onclick="settings()">Settings</p>
+<div class="menu" id="menu">
+<p onclick="alert('Profile')">Profile</p>
+<p onclick="alert('Income')">Income Details</p>
+<p onclick="alert('Team')">My Team</p>
+<p onclick="alert('Levels')">Levels</p>
 <p onclick="logout()">Logout</p>
+</div>
 
 </div>
+
+</div>
+
+
+
 <div class="container">
 
-
-<div class="profile">
-
-<img id="photo">
-
-<h2 class="name" id="name">
-User Name
-</h2>
-
-<p id="id">
-GWI ID
-</p>
-
+<div class="box">
+<h2 class="gold" id="name">User Name</h2>
+<p id="id">GWI ID</p>
 </div>
 
 
-
-<div class="card">
-<h3>Today Income</h3>
-<div class="amount">₹0</div>
+<div class="box">
+<h3 class="gold">Today Income</h3>
+<div class="money">₹0</div>
 </div>
 
 
-<div class="card">
-<h3>Last 7 Days Income</h3>
-<div class="amount">₹0</div>
+<div class="box">
+<h3 class="gold">Last 7 Days Income</h3>
+<div class="money">₹0</div>
 </div>
 
 
-<div class="card">
-<h3>N/W Income</h3>
-<div class="amount">₹0</div>
-</div>
-
-
-<div class="card">
-<h3>Level Up Bonus</h3>
-<div class="amount">₹0</div>
-</div>
-
-
-<div class="card">
-<h3>Total Income</h3>
-<div class="amount">₹0</div>
+<div class="box">
+<h3 class="gold">Total Income</h3>
+<div class="money">₹0</div>
 </div>
 
 
@@ -198,116 +133,36 @@ GWI ID
 
 <script>
 
-
-function openMenu(){
+function show(){
 
 let m=document.getElementById("menu");
 
-if(m.style.display=="block"){
-
-m.style.display="none";
-
-}else{
-
-m.style.display="block";
+m.style.display =
+m.style.display=="block" ? "none" : "block";
 
 }
-
-}
-
 
 
 let user=JSON.parse(localStorage.getItem("loginUser"));
 
-
 if(user){
 
-document.getElementById("name").innerHTML=user.name || "User";
+document.getElementById("name").innerHTML=user.name;
 
-document.getElementById("id").innerHTML=user.gwiid || "GWI ID";
-
-
-if(user.photo){
-
-document.getElementById("photo").src=user.photo;
+document.getElementById("id").innerHTML=user.gwiid;
 
 }
-
-}
-
-
-
-function profile(){
-
-alert("Profile Section");
-
-}
-
-
-function income(){
-
-alert("Income Details");
-
-}
-
-
-function team(){
-
-alert("My Team");
-
-}
-
-
-function levels(){
-
-alert("Levels");
-
-}
-
-
-function bonus(){
-
-alert("Level Bonus");
-
-}
-
-
-function withdraw(){
-
-alert("Withdrawal Request");
-
-}
-
-
-function history(){
-
-alert("Withdrawal History");
-
-}
-
-
-function settings(){
-
-alert("Settings");
-
-}
-
 
 
 function logout(){
 
 localStorage.removeItem("loginUser");
-
-window.location.href="login.html";
+location.href="login.html";
 
 }
-
 
 </script>
 
 
 </body>
 </html>
-</div>
-
-</div>
