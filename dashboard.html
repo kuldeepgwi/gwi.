@@ -3,209 +3,21 @@
 <head>
 
 <title>GWI Premium Dashboard</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-
-*{
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-margin:0;
-background:#ffffff;
-color:#000;
-}
-
-
-/* Header */
-
-.header{
-text-align:center;
-padding:25px 10px;
-background:#fff;
-border-bottom:3px solid gold;
-box-shadow:0 3px 15px #d4af37;
-}
-
-
-.header h1{
-margin:0;
-font-size:26px;
-color:#000;
-font-weight:800;
-}
-
-
-.header h2{
-margin:8px;
-font-size:22px;
-color:#c99700;
-font-weight:bold;
-}
-
-
-/* Menu */
-
-.menu{
-position:absolute;
-right:15px;
-top:20px;
-}
-
-
-.menu button{
-background:none;
-border:0;
-font-size:35px;
-color:#c99700;
-}
-
-
-.dropdown{
-display:none;
-position:absolute;
-right:0;
-background:#fff;
-width:220px;
-border:2px solid gold;
-border-radius:15px;
-overflow:hidden;
-}
-
-
-.dropdown p{
-margin:0;
-padding:13px;
-border-bottom:1px solid #ddd;
-color:#000;
-}
-
-
-
-/* Main */
-
-.container{
-padding:15px;
-}
-
-
-
-/* Profile */
-
-.profile{
-
-background:#fff;
-border:3px solid gold;
-border-radius:25px;
-padding:20px;
-text-align:center;
-box-shadow:0 0 20px #d4af37;
-
-}
-
-
-.profile img{
-
-width:110px;
-height:110px;
-border-radius:50%;
-border:4px solid gold;
-object-fit:cover;
-
-}
-
-
-.name{
-
-color:#000;
-font-size:26px;
-font-weight:800;
-
-}
-
-
-
-/* Cards */
-
-
-.card{
-
-background:#fff;
-border:2px solid gold;
-border-radius:20px;
-padding:18px;
-margin-top:15px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-box-shadow:0 0 15px #ddd;
-
-}
-
-
-.left{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-
-.icon{
-font-size:35px;
-}
-
-
-.title{
-font-size:18px;
-font-weight:bold;
-color:#000;
-}
-
-
-.amount{
-font-size:30px;
-font-weight:800;
-color:#000;
-}
-
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
-
 
 <div class="header">
 
 <h1>✨ WELCOME TO ✨</h1>
 <h2>🚀 GROWTH WITH INDIA FAMILY 🚀</h2>
 
-
-<div class="menu">
-
-<button onclick="openMenu()">⋮</button>
-
-
-<div class="dropdown" id="menu">
-
-<p>👤 Profile</p>
-<p>💰 Income Details</p>
-<p>👥 My Team</p>
-<p>🏆 Levels</p>
-<p>🎁 Level Bonus</p>
-<p>💳 Withdrawal</p>
-<p>⚙️ Settings</p>
-
 </div>
-
-</div>
-
-</div>
-
 
 
 <div class="container">
@@ -213,96 +25,85 @@ color:#000;
 
 <div class="profile">
 
-<img id="photo">
+<img id="photo" src="https://via.placeholder.com/100">
 
-<h2 class="name" id="name">User Name</h2>
+<h2 id="name">User Name</h2>
 
-<p id="id">GWI ID</p>
+<p>🆔 GWI ID: <span id="id">0</span></p>
+
+<p>🏆 Rank: <span id="rank">0</span></p>
 
 </div>
 
 
 
 <div class="card">
-<div class="left">
-<div class="icon">💰</div>
-<div class="title">Today Income</div>
+
+<h3>💰 Today Income</h3>
+
+<h2>₹<span id="today">0</span></h2>
+
 </div>
-<div class="amount">₹0</div>
-</div>
+
 
 
 <div class="card">
-<div class="left">
-<div class="icon">📊</div>
-<div class="title">Last 7 Days Income</div>
+
+<h3>📊 Last 7 Days Income</h3>
+
+<h2>₹<span id="week">0</span></h2>
+
 </div>
-<div class="amount">₹0</div>
-</div>
+
 
 
 <div class="card">
-<div class="left">
-<div class="icon">👥</div>
-<div class="title">N/W Income</div>
+
+<h3>👥 N/W Income</h3>
+
+<h2>₹<span id="nw">0</span></h2>
+
 </div>
-<div class="amount">₹0</div>
-</div>
+
 
 
 <div class="card">
-<div class="left">
-<div class="icon">🏆</div>
-<div class="title">Level Up Bonus</div>
+
+<h3>🎁 Level Up Bonus</h3>
+
+<h2>₹<span id="bonus">0</span></h2>
+
 </div>
-<div class="amount">₹0</div>
-</div>
+
 
 
 <div class="card">
-<div class="left">
-<div class="icon">💎</div>
-<div class="title">Total Income</div>
-</div>
-<div class="amount">₹0</div>
-</div>
 
+<h3>💎 Total Income</h3>
+
+<h2>₹<span id="total">0</span></h2>
 
 </div>
 
 
 
-<script>
+<div class="card menu-card">
 
-function openMenu(){
+<button>👥 My Team</button>
 
-let x=document.getElementById("menu");
+<button>📝 Register</button>
 
-x.style.display=x.style.display=="block"?"none":"block";
+<button>💳 Withdrawal</button>
 
-}
+<button>⚙️ Settings</button>
 
-
-let user=JSON.parse(localStorage.getItem("loginUser"));
-
-
-if(user){
-
-document.getElementById("name").innerHTML=user.name || "User";
-
-document.getElementById("id").innerHTML=user.gwiid || "GWI ID";
+</div>
 
 
-if(user.photo){
+</div>
 
-document.getElementById("photo").src=user.photo;
 
-}
-
-}
-
-</script>
-
+<script src="script.js"></script>
 
 </body>
 </html>
