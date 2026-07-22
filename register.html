@@ -5,163 +5,91 @@
 <title>GWI Registration</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#050505;
-color:white;
-}
-
-.container{
-max-width:400px;
-margin:30px auto;
-padding:20px;
-}
-
-.form{
-background:#111;
-padding:25px;
-border-radius:20px;
-border:2px solid gold;
-box-shadow:0 0 20px gold;
-}
-
-h1{
-text-align:center;
-color:#d4af37;
-}
-
-input,select{
-width:100%;
-padding:14px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid gold;
-background:#222;
-color:white;
-}
-
-.password{
-position:relative;
-}
-
-.eye{
-position:absolute;
-right:15px;
-top:22px;
-cursor:pointer;
-}
-
-button{
-width:100%;
-padding:15px;
-background:#d4af37;
-color:black;
-border:none;
-border-radius:10px;
-font-size:18px;
-font-weight:bold;
-}
-
-label{
-font-size:14px;
-}
-
-</style>
+<link rel="stylesheet" href="register.css">
 
 </head>
 
 <body>
 
-<div class="container">
-
-<div class="form">
+<div class="box">
 
 <h1>🚀 GWI Registration</h1>
+<p>Growth With India Family</p>
 
 
-<input type="text" placeholder="Full Name">
+<input id="name" type="text" placeholder="Full Name">
 
 
-<input type="number" placeholder="Mobile Number">
+<input id="mobile" type="number" placeholder="Mobile Number">
 
 
-<input type="email" placeholder="Email ID">
+<input id="email" type="email" placeholder="Email ID">
 
 
-<input type="text" placeholder="Sponsor ID">
+<input id="sponsor" type="text" placeholder="Sponsor ID">
 
 
 
-<select>
+<select id="state">
 
-<option>Select State</option>
+<option value="">Select State</option>
 
-<option>Rajasthan</option>
-<option>Haryana</option>
-<option>Punjab</option>
-<option>Gujarat</option>
-<option>Maharashtra</option>
+<option>Andhra Pradesh</option>
+<option>Assam</option>
+<option>Bihar</option>
 <option>Delhi</option>
+<option>Gujarat</option>
+<option>Haryana</option>
+<option>Jharkhand</option>
+<option>Karnataka</option>
+<option>Kerala</option>
+<option>Madhya Pradesh</option>
+<option>Maharashtra</option>
+<option>Odisha</option>
+<option>Punjab</option>
+<option>Rajasthan</option>
+<option>Tamil Nadu</option>
+<option>Telangana</option>
 <option>Uttar Pradesh</option>
+<option>Uttarakhand</option>
+<option>West Bengal</option>
 <option>Other</option>
 
 </select>
 
 
-
-<input type="text" placeholder="City">
-
+<input id="city" type="text" placeholder="City">
 
 
 <div class="password">
 
-<input id="pass" type="password" placeholder="Password">
+<input id="password" type="password" placeholder="Password">
 
-<span class="eye" onclick="showPass()">👁️</span>
+<span onclick="showPassword()">👁️</span>
 
 </div>
 
 
-
 <label>
-<input type="checkbox">
- I agree Terms & Conditions
+
+<input id="terms" type="checkbox">
+
+I agree Terms & Conditions
+
 </label>
 
 
-<br><br>
+<button onclick="registerUser()">
 
-
-<button>
 Register Now 🚀
+
 </button>
 
 
 </div>
 
-</div>
 
-
-
-<script>
-
-function showPass(){
-
-let x=document.getElementById("pass");
-
-if(x.type==="password"){
-x.type="text";
-}
-else{
-x.type="password";
-}
-
-}
-
-</script>
+<script type="module" src="register.js"></script>
 
 
 </body>
