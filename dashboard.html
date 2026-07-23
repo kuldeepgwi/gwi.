@@ -3,6 +3,7 @@
 <head>
 
 <title>GWI Dashboard</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -25,50 +26,79 @@ border-bottom:2px solid gold;
 color:gold;
 }
 
+
 .profile{
-margin:20px;
-padding:20px;
+margin:15px;
 background:#111;
+padding:20px;
 border-radius:20px;
 border:1px solid gold;
 text-align:center;
 }
 
+
 .profile img{
 width:90px;
 height:90px;
 border-radius:50%;
+border:3px solid gold;
 }
+
 
 .card{
 margin:15px;
-padding:20px;
 background:#111;
-border-radius:15px;
+padding:15px;
+border-radius:20px;
 border:1px solid gold;
 }
 
-button{
-width:100%;
+
+.income{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+
+.box{
+background:#222;
 padding:15px;
-margin:8px 0;
+border-radius:15px;
+text-align:center;
+}
+
+
+.box h3{
+color:gold;
+}
+
+
+button{
+
+width:100%;
+padding:14px;
+margin-top:10px;
 border:none;
-border-radius:20px;
+border-radius:25px;
 background:gold;
-font-size:16px;
+font-size:17px;
 font-weight:bold;
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 
 <div class="header">
-<h1>GWI Dashboard</h1>
+<h1>GWI DASHBOARD</h1>
 </div>
+
 
 
 <div class="profile">
@@ -77,9 +107,9 @@ font-weight:bold;
 
 <h2 id="name">User Name</h2>
 
-<p>GWI ID: <span id="gwiid"></span></p>
+<p>GWI ID : <span id="gwiid"></span></p>
 
-<p>Status: <b style="color:lime">Active</b></p>
+<p style="color:lime;">● Active</p>
 
 <p id="date"></p>
 
@@ -87,31 +117,64 @@ font-weight:bold;
 
 
 
+
 <div class="card">
 
-<h2>Income</h2>
+<h2>Income Dashboard</h2>
 
-<p>Today Income : ₹0</p>
 
-<p>Total Income : ₹0</p>
+<div class="income">
+
+
+<div class="box">
+<h3>Today Income</h3>
+<p>₹0</p>
+</div>
+
+
+<div class="box">
+<h3>NW Income</h3>
+<p>₹0</p>
+</div>
+
+
+<div class="box">
+<h3>Last 7 Days</h3>
+<p>₹0</p>
+</div>
+
+
+<div class="box">
+<h3>Level Up Bonus</h3>
+<p>₹0</p>
+</div>
+
+
+<div class="box">
+<h3>Total Income</h3>
+<p>₹0</p>
+</div>
+
+
+</div>
 
 </div>
 
 
 
+
 <div class="card">
 
-<button onclick="myTeam()">
-My Team
-</button>
+<h2>Quick Menu</h2>
 
-<button onclick="withdraw()">
-Withdraw
-</button>
+<button>My Team</button>
 
-<button onclick="settings()">
-Settings
-</button>
+<button>Withdraw</button>
+
+<button>Income History</button>
+
+<button>Settings</button>
+
 
 </div>
 
@@ -119,7 +182,9 @@ Settings
 
 <script>
 
+
 let user = JSON.parse(localStorage.getItem("loginUser"));
+
 
 if(user){
 
@@ -131,23 +196,7 @@ document.getElementById("gwiid").innerHTML=user.gwiid;
 
 
 document.getElementById("date").innerHTML =
-"Joined: "+new Date().toLocaleString();
-
-
-
-function myTeam(){
-alert("My Team Opening Soon");
-}
-
-
-function withdraw(){
-alert("Withdraw Section Opening Soon");
-}
-
-
-function settings(){
-alert("Settings Opening Soon");
-}
+"Join Date : "+new Date().toLocaleString();
 
 
 </script>
