@@ -52,3 +52,23 @@ document.getElementById("status").innerHTML = "Active";
 alert("✅ ID Activated Successfully");
 
 }
+// लाइव डेट और टाइम अपडेट करने के लिए
+function updateDateTime() {
+    const now = new Date();
+    const options = { dateStyle: 'full', timeStyle: 'medium' };
+    const dateTimeString = now.toLocaleString('hi-IN', options);
+    
+    // यह मानकर कि हम HTML में एक नया एलिमेंट जोड़ेंगे
+    const dtElement = document.getElementById('datetime-display');
+    if (dtElement) {
+        dtElement.innerText = dateTimeString;
+    }
+}
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
+// आईडी एक्टिवेशन का फंक्शन
+function activateID() {
+    // यहाँ पर हम Firestore डेटाबेस से आईडी एक्टिवेट करने का कोड जोड़ेंगे
+    alert("आईडी एक्टिवेट करने की प्रक्रिया शुरू हो गई है!");
+}
