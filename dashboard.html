@@ -2,90 +2,339 @@
 <html>
 <head>
 
-<title>GWI Dashboard</title>
+<title>GWI Luxury Dashboard</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
-body{
-margin:0;
-font-family:Arial;
-background:#000;
-color:white;
+*{
+box-sizing:border-box;
+font-family:Georgia,serif;
 }
+
+
+body{
+
+margin:0;
+background:#020202;
+color:white;
+
+}
+
+
+
+/* HEADER */
 
 .header{
-background:#111;
-padding:20px;
+
 text-align:center;
+padding:30px;
+
+background:
+linear-gradient(145deg,#151515,#000);
+
 border-bottom:2px solid gold;
+
 }
 
-.header h1{
-color:gold;
+
+.logo{
+
+font-size:55px;
+font-weight:900;
+letter-spacing:8px;
+
+color:#ffd700;
+
+text-shadow:
+0 0 20px gold;
+
 }
+
+
+.sub{
+
+color:#aaa;
+letter-spacing:2px;
+
+}
+
+
+
+
+
+/* WELCOME */
+
+
+.welcome{
+
+margin:20px;
+
+padding:25px;
+
+border-radius:30px;
+
+background:#111;
+
+border:2px solid #b8860b;
+
+box-shadow:
+0 0 30px rgba(255,215,0,.25);
+
+text-align:center;
+
+}
+
+
+.welcome h2{
+
+color:#ffd700;
+
+}
+
+
+
+
+
+/* PROFILE */
 
 
 .profile{
-margin:15px;
-background:#111;
-padding:20px;
-border-radius:20px;
-border:1px solid gold;
+
+margin:20px;
+
+padding:25px;
+
+border-radius:35px;
+
+background:
+linear-gradient(145deg,#181818,#050505);
+
+border:2px solid gold;
+
 text-align:center;
+
 }
 
 
 .profile img{
-width:90px;
-height:90px;
+
+width:110px;
+height:110px;
+
 border-radius:50%;
-border:3px solid gold;
+
+border:4px solid gold;
+
+box-shadow:
+0 0 25px gold;
+
 }
 
 
-.card{
-margin:15px;
-background:#111;
+.active{
+
+color:#00ff66;
+
+font-weight:bold;
+
+}
+
+
+.clock{
+
+margin-top:15px;
+
 padding:15px;
+
 border-radius:20px;
-border:1px solid gold;
+
+background:#000;
+
+border:1px solid #444;
+
+color:#ffd700;
+
 }
+
+
+
+
+
+/* INCOME */
 
 
 .income{
+
 display:grid;
+
 grid-template-columns:1fr 1fr;
-gap:10px;
+
+gap:18px;
+
+padding:20px;
+
 }
 
 
-.box{
-background:#222;
-padding:15px;
-border-radius:15px;
+
+.card{
+
+position:relative;
+
+overflow:hidden;
+
+background:
+
+linear-gradient(145deg,#191919,#050505);
+
+border-radius:30px;
+
+padding:25px 15px;
+
 text-align:center;
+
+border:2px solid #c9a227;
+
+box-shadow:
+
+0 0 25px rgba(255,215,0,.2);
+
 }
 
 
-.box h3{
-color:gold;
+
+.card:before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:7px;
+
+background:
+
+linear-gradient(
+90deg,
+#8b6508,
+#ffd700,
+#fff0a0,
+#ffd700
+);
+
+}
+
+
+
+.icon{
+
+font-size:40px;
+
+margin-top:8px;
+
+}
+
+
+
+.card h3{
+
+color:#ffd700;
+
+font-size:17px;
+
+letter-spacing:1px;
+
+}
+
+
+
+.amount{
+
+font-size:32px;
+
+font-weight:bold;
+
+color:white;
+
+text-shadow:
+
+0 0 12px gold;
+
+}
+
+
+
+.card p{
+
+color:#aaa;
+
+border-top:1px solid #444;
+
+padding-top:10px;
+
+}
+
+
+
+
+
+/* BUTTON */
+
+
+.menu{
+
+padding:20px;
+
 }
 
 
 button{
 
 width:100%;
-padding:14px;
-margin-top:10px;
+
+padding:16px;
+
+margin:10px 0;
+
+border-radius:35px;
+
 border:none;
-border-radius:25px;
-background:gold;
-font-size:17px;
+
+background:
+
+linear-gradient(
+90deg,
+#ffd700,
+#b8860b
+);
+
+font-size:18px;
+
 font-weight:bold;
 
 }
+
+
+
+
+
+.footer{
+
+text-align:center;
+
+padding:20px;
+
+color:#777;
+
+}
+
 
 </style>
 
@@ -95,108 +344,178 @@ font-weight:bold;
 <body>
 
 
+
 <div class="header">
-<h1>GWI DASHBOARD</h1>
+
+<div class="logo">
+GWI
 </div>
+
+<div class="sub">
+Growth With India
+</div>
+
+</div>
+
+
+
+
+<div class="welcome">
+
+<h2>
+Welcome To Growth With India
+</h2>
+
+<p>
+Luxury Business Dashboard
+</p>
+
+</div>
+
 
 
 
 <div class="profile">
 
+
 <img src="profile.png">
 
-<h2 id="name">User Name</h2>
 
-<p>GWI ID : <span id="gwiid"></span></p>
+<h2 id="name">
+User Name
+</h2>
 
-<p style="color:lime;">● Active</p>
 
-<p id="date"></p>
+<p>
+GWI ID :
+<span id="id">
+GWI0000
+</span>
+</p>
+
+
+<p class="active">
+● Active Member
+</p>
+
+
+<div class="clock">
+
+<div id="date"></div>
+
+<div id="time"></div>
+
+</div>
+
 
 </div>
 
 
 
-
-<div class="card">
-
-<h2>Income Dashboard</h2>
 
 
 <div class="income">
 
 
-<div class="box">
+<div class="card">
+<div class="icon">💰</div>
 <h3>Today Income</h3>
-<p>₹0</p>
+<div class="amount">₹0</div>
+<p>Daily Earnings</p>
 </div>
-
-
-<div class="box">
-<h3>NW Income</h3>
-<p>₹0</p>
-</div>
-
-
-<div class="box">
-<h3>Last 7 Days</h3>
-<p>₹0</p>
-</div>
-
-
-<div class="box">
-<h3>Level Up Bonus</h3>
-<p>₹0</p>
-</div>
-
-
-<div class="box">
-<h3>Total Income</h3>
-<p>₹0</p>
-</div>
-
-
-</div>
-
-</div>
-
-
 
 
 <div class="card">
+<div class="icon">📈</div>
+<h3>NW Income</h3>
+<div class="amount">₹0</div>
+<p>Network Income</p>
+</div>
 
-<h2>Quick Menu</h2>
 
-<button>My Team</button>
+<div class="card">
+<div class="icon">📅</div>
+<h3>Last 7 Days</h3>
+<div class="amount">₹0</div>
+<p>Weekly Income</p>
+</div>
 
-<button>Withdraw</button>
 
-<button>Income History</button>
+<div class="card">
+<div class="icon">🏆</div>
+<h3>Level Up Bonus</h3>
+<div class="amount">₹0</div>
+<p>Reward</p>
+</div>
 
-<button>Settings</button>
+
+<div class="card">
+<div class="icon">💎</div>
+<h3>Total Income</h3>
+<div class="amount">₹0</div>
+<p>Lifetime Income</p>
+</div>
 
 
 </div>
+
+
+
+
+<div class="menu">
+
+<button>👥 My Team</button>
+
+<button>💸 Withdraw</button>
+
+<button>📜 Income History</button>
+
+<button>⚙ Settings</button>
+
+</div>
+
+
+
+
+<div class="footer">
+
+GWI © Growth With India
+
+</div>
+
 
 
 
 <script>
 
-
-let user = JSON.parse(localStorage.getItem("loginUser"));
-
+let user=JSON.parse(localStorage.getItem("loginUser"));
 
 if(user){
 
 document.getElementById("name").innerHTML=user.name;
 
-document.getElementById("gwiid").innerHTML=user.gwiid;
+document.getElementById("id").innerHTML=user.gwiid;
 
 }
 
 
-document.getElementById("date").innerHTML =
-"Join Date : "+new Date().toLocaleString();
+
+function liveClock(){
+
+let now=new Date();
+
+document.getElementById("date").innerHTML=
+now.toLocaleDateString();
+
+document.getElementById("time").innerHTML=
+now.toLocaleTimeString();
+
+}
+
+
+setInterval(liveClock,1000);
+
+liveClock();
 
 
 </script>
