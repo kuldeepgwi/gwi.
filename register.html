@@ -3,9 +3,53 @@
 <head>
 
 <title>GWI Registration</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="register.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+margin:0;
+background:#000;
+color:white;
+font-family:Arial;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.box{
+width:90%;
+max-width:380px;
+background:#111;
+padding:25px;
+border-radius:20px;
+border:2px solid gold;
+}
+
+h1{
+color:gold;
+text-align:center;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:10px;
+border:none;
+}
+
+button{
+width:100%;
+padding:14px;
+background:gold;
+border:none;
+border-radius:20px;
+font-weight:bold;
+font-size:18px;
+}
+</style>
 
 </head>
 
@@ -14,82 +58,62 @@
 <div class="box">
 
 <h1>🚀 GWI Registration</h1>
-<p>Growth With India Family</p>
 
+<input id="name" placeholder="Full Name">
 
-<input id="name" type="text" placeholder="Full Name">
+<input id="mobile" placeholder="Mobile Number">
 
+<input id="email" placeholder="Email ID">
 
-<input id="mobile" type="number" placeholder="Mobile Number">
-
-
-<input id="email" type="email" placeholder="Email ID">
-
-
-<input id="sponsor" type="text" placeholder="Sponsor ID">
-
-
+<input id="sponsor" placeholder="Sponsor ID">
 
 <select id="state">
-
 <option value="">Select State</option>
-
-<option>Andhra Pradesh</option>
-<option>Assam</option>
-<option>Bihar</option>
+<option>Rajasthan</option>
 <option>Delhi</option>
 <option>Gujarat</option>
-<option>Haryana</option>
-<option>Jharkhand</option>
-<option>Karnataka</option>
-<option>Kerala</option>
-<option>Madhya Pradesh</option>
-<option>Maharashtra</option>
-<option>Odisha</option>
-<option>Punjab</option>
-<option>Rajasthan</option>
-<option>Tamil Nadu</option>
-<option>Telangana</option>
-<option>Uttar Pradesh</option>
-<option>Uttarakhand</option>
-<option>West Bengal</option>
 <option>Other</option>
-
 </select>
 
+<input id="city" placeholder="City">
 
-<input id="city" type="text" placeholder="City">
+<input id="gwiid" placeholder="Create GWI ID">
 
-
-<div class="password">
-
-<input id="password" type="password" placeholder="Password">
-
-<span onclick="showPassword()">👁️</span>
-
-</div>
+<input id="password" type="password" placeholder="Create Password">
 
 
-<label>
-
-<input id="terms" type="checkbox">
-
-I agree Terms & Conditions
-
-</label>
-
-
-<button onclick="registerUser()">
-
-Register Now 🚀
-
-</button>
-
+<button onclick="registerUser()">Register Now 🚀</button>
 
 </div>
 
 
-<script type="module" src="register.js"></script>
+<script>
+
+function registerUser(){
+
+let user={
+name:name.value,
+mobile:mobile.value,
+email:email.value,
+sponsor:sponsor.value,
+state:state.value,
+city:city.value,
+gwiid:gwiid.value,
+password:password.value
+};
+
+
+localStorage.setItem("gwiUser",JSON.stringify(user));
+
+
+alert("Registration Successful");
+
+
+window.location.href="login.html";
+
+}
+
+</script>
 
 
 </body>
