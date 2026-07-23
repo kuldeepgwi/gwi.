@@ -1,11 +1,157 @@
-<div class="menu">
+<!DOCTYPE html>
+<html>
+<head>
 
-<a href="team.html"><button>👥 My Team</button></a>
+<title>GWI Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<a href="register.html"><button>📝 Register</button></a>
+<style>
 
-<a href="withdrawal.html"><button>💳 Withdrawal</button></a>
+body{
+margin:0;
+font-family:Arial;
+background:#000;
+color:white;
+}
 
-<a href="settings.html"><button>⚙️ Settings</button></a>
+.header{
+background:#111;
+padding:20px;
+text-align:center;
+border-bottom:2px solid gold;
+}
+
+.header h1{
+color:gold;
+}
+
+.profile{
+margin:20px;
+padding:20px;
+background:#111;
+border-radius:20px;
+border:1px solid gold;
+text-align:center;
+}
+
+.profile img{
+width:90px;
+height:90px;
+border-radius:50%;
+}
+
+.card{
+margin:15px;
+padding:20px;
+background:#111;
+border-radius:15px;
+border:1px solid gold;
+}
+
+button{
+width:100%;
+padding:15px;
+margin:8px 0;
+border:none;
+border-radius:20px;
+background:gold;
+font-size:16px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="header">
+<h1>GWI Dashboard</h1>
+</div>
+
+
+<div class="profile">
+
+<img src="profile.png">
+
+<h2 id="name">User Name</h2>
+
+<p>GWI ID: <span id="gwiid"></span></p>
+
+<p>Status: <b style="color:lime">Active</b></p>
+
+<p id="date"></p>
 
 </div>
+
+
+
+<div class="card">
+
+<h2>Income</h2>
+
+<p>Today Income : ₹0</p>
+
+<p>Total Income : ₹0</p>
+
+</div>
+
+
+
+<div class="card">
+
+<button onclick="myTeam()">
+My Team
+</button>
+
+<button onclick="withdraw()">
+Withdraw
+</button>
+
+<button onclick="settings()">
+Settings
+</button>
+
+</div>
+
+
+
+<script>
+
+let user = JSON.parse(localStorage.getItem("loginUser"));
+
+if(user){
+
+document.getElementById("name").innerHTML=user.name;
+
+document.getElementById("gwiid").innerHTML=user.gwiid;
+
+}
+
+
+document.getElementById("date").innerHTML =
+"Joined: "+new Date().toLocaleString();
+
+
+
+function myTeam(){
+alert("My Team Opening Soon");
+}
+
+
+function withdraw(){
+alert("Withdraw Section Opening Soon");
+}
+
+
+function settings(){
+alert("Settings Opening Soon");
+}
+
+
+</script>
+
+
+</body>
+</html>
